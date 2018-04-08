@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Math123</string>
+    <string name="btn_test">Kiểm tra</string>
+    <string name="btn_practice">Luyện tập</string>
+    <string name="btn_setting">Cài đặt</string>
+    <string name="logo">TODO</string>
+    <string name="btn_ToanHinh">\nToán\nhình</string>
+    <string name="btn_Toando">\nToán\nđố</string>
+    <string name="btn_Tinhnham">\nTính\nnhẩm</string>
+    <string name="btn_Lonbe">\nLớn\nbé</string>
+    <string name="btn_Tapdem">\nTập\nđếm</string>
+
+</resources>

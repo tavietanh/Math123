@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_train"
+    >
+
+    <Button
+        android:id="@+id/btn_Toando"
+        android:layout_width="125dp"
+        android:layout_height="113dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="93dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="92dp"
+        android:background="@drawable/button_apple"
+        android:text="@string/btn_Toando"
+        android:textColor="#FFD185"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btn_Tapdem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_Toanhinh"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_Tinhnham"
+        android:layout_width="125dp"
+        android:layout_height="113dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_apple"
+        android:text="@string/btn_Tinhnham"
+        android:textColor="#FFD185"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btn_Lonbe"
+        app:layout_constraintEnd_toStartOf="@+id/btn_Toando"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Toanhinh" />
+
+    <Button
+        android:id="@+id/btn_Tapdem"
+        android:layout_width="125dp"
+        android:layout_height="113dp"
+        android:layout_marginBottom="54dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/button_apple"
+        android:rotation="270"
+        android:text="@string/btn_Tapdem"
+        android:textColor="#FFD185"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_Lonbe"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Toando" />
+
+    <Button
+        android:id="@+id/btn_Lonbe"
+        android:layout_width="125dp"
+        android:layout_height="113dp"
+        android:layout_marginBottom="66dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/button_apple"
+        android:rotation="90"
+        android:text="@string/btn_Lonbe"
+        android:textColor="#FFD185"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_Tapdem"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Tinhnham" />
+
+    <Button
+        android:id="@+id/btn_Toanhinh"
+        android:layout_width="125dp"
+        android:layout_height="113dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="66dp"
+        android:background="@drawable/button_apple"
+        android:text="@string/btn_ToanHinh"
+        android:textColor="#FFD185"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btn_Tinhnham"
+        app:layout_constraintEnd_toStartOf="@+id/btn_Toando"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>
