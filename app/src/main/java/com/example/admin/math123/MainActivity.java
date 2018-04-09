@@ -20,6 +20,21 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        Button btnTest = (Button)findViewById(R.id.btnTest);
+        btnTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,testActivity.class);
+                startActivity(intent);
+            }
+        });
+        Button btnSetting = (Button)findViewById(R.id.btnSetting);
+        btnSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,settingActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
