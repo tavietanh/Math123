@@ -1,1 +1,8 @@
-<resources></resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Lonbe_numberB">4</string>
+    <string name="Lonbe_numberA">3</string>
+    <string name="equalsign">=</string>
+    <string name="lesssign"><![CDATA[<]]></string>
+    <string name="greatersign"><![CDATA[>]]></string>
+</resources>
