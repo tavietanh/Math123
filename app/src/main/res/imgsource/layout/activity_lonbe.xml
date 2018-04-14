@@ -8,7 +8,7 @@
     android:background="@drawable/background_tapdem">
 
     <TextView
-        android:id="@+id/numberA"
+        android:id="@+id/numberb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
@@ -35,12 +35,12 @@
         android:textSize="80sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnEqualsign"
-        app:layout_constraintEnd_toStartOf="@+id/numberA"
-        app:layout_constraintStart_toEndOf="@+id/numberB"
+        app:layout_constraintEnd_toStartOf="@+id/numberb"
+        app:layout_constraintStart_toEndOf="@+id/numbera"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/numberB"
+        android:id="@+id/numbera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
@@ -83,7 +83,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnEqualsign"
-        app:layout_constraintTop_toBottomOf="@+id/numberA" />
+        app:layout_constraintTop_toBottomOf="@+id/numberb" />
 
     <Button
         android:id="@+id/btnGreatersign"
@@ -98,7 +98,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnEqualsign"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numberB" />
+        app:layout_constraintTop_toBottomOf="@+id/numbera" />
 
     <Button
         android:id="@+id/btnNext"
@@ -108,7 +108,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginStart="266dp"
         android:layout_marginTop="25dp"
-        android:text="Tiếp theo"
+        android:text="@string/btn_Next"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -138,4 +138,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/countView"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/btn_star"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="32dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/btn_star"
+        tools:layout_editor_absoluteX="253dp"
+        tools:layout_editor_absoluteY="50dp" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="368dp"
+        android:layout_height="204dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="55dp">
+
+    </android.support.constraint.ConstraintLayout>
+
 </android.support.constraint.ConstraintLayout>

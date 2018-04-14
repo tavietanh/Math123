@@ -5,4 +5,5 @@
     <string name="equalsign">=</string>
     <string name="lesssign"><![CDATA[<]]></string>
     <string name="greatersign"><![CDATA[>]]></string>
+    <string name="btn_Next">Tiếp theo</string>
 </resources>
