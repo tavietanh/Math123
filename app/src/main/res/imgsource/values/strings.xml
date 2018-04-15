@@ -6,4 +6,13 @@
     <string name="lesssign"><![CDATA[<]]></string>
     <string name="greatersign"><![CDATA[>]]></string>
     <string name="btn_Next">Tiếp theo</string>
+    <string name="TinhNham_numberA">1</string>
+    <string name="TinhNham_numberB">2</string>
+    <string name="DapAnA">1</string>
+    <string name="DapAnB">2</string>
+    <string name="DapAnC">3</string>
+    <string name="DapAnD">4</string>
+    <string name="TinhNham_Sign">+</string>
+    <string name="DiemSo">0</string>
+    <string name="Cau">1</string>
 </resources>
