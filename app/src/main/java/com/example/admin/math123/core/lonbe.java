@@ -5,12 +5,12 @@ import android.graphics.Canvas;
 import java.util.ArrayList;
 
 public class lonbe {
-    int a = (int) (10*Math.random());
-    int b = (int) (10*Math.random());
+    int a = (int) (11*Math.random());
+    int b = (int) (11*Math.random());
     Bitmap bitmap ;
     ArrayList<Bitmap> arrayBitmap=new ArrayList<Bitmap>();
     public void setA() {
-        this.a = (int) (10*Math.random());
+        this.a = (int) (11*Math.random());
     }
     public void setB() {
         this.b = (int) (10*Math.random());
@@ -64,6 +64,7 @@ public class lonbe {
     }
     public Bitmap addBitmapA()
     {
+        if(a==0) return null;
         arrayBitmap.clear();
         for(int i = 0;i<a;i++)
         {
@@ -73,6 +74,7 @@ public class lonbe {
     }
     public Bitmap addBitmapB()
     {
+        if(b==0) return null;
         arrayBitmap.clear();
         for(int i = 0;i<b;i++)
         {

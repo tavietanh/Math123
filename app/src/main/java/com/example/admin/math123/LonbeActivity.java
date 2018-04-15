@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -11,9 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.admin.math123.core.lonbe;
-
-
-
 
 public class LonbeActivity extends AppCompatActivity {
     lonbe Lonbe = new lonbe();
@@ -30,7 +28,7 @@ public class LonbeActivity extends AppCompatActivity {
     ImageView imgViewLeft;
     ImageView imgViewRight;
     Bitmap icon;
-
+    int type= (int) (2*Math.random());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,36 +43,22 @@ public class LonbeActivity extends AppCompatActivity {
         btnnext = (Button)findViewById(R.id.btnNext);
         countview = (TextView)findViewById(R.id.countView);
         countview.setText(String.valueOf(count));
-        numbera.setText(Lonbe.getA());
-        numberb.setText(Lonbe.getB());
-        result= Lonbe.result();
         imgViewLeft = (ImageView)findViewById(R.id.imageView2) ;
         imgViewRight = (ImageView)findViewById(R.id.imageView3) ;
-        addani();
+        randomType(type);
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 count=count+1;
                 countview.setText(String.valueOf(count));
-                Lonbe = new lonbe();
-                numbera.setText(Lonbe.getA());
-                numberb.setText(Lonbe.getB());
                 activeButton(true,View.INVISIBLE);
                 signview.setText("?");
-                result= Lonbe.result();
-                imgViewLeft.setImageResource(0);
-                imgViewRight.setImageResource(0);
-                addani();
+                randomType(type);
             }
         });
     }
 
     public void onButtonClick(View v){
-        //signview = (TextView)findViewById(R.id.SignView);
-        //btnless = (Button)findViewById(R.id.btnLesssign);
-        //btnequal = (Button)findViewById(R.id.btnEqualsign);
-        //btngreater = (Button)findViewById(R.id.btnGreatersign);
-        //btnnext = (Button)findViewById(R.id.btnNext);
         switch (v.getId()){
             case R.id.btnLesssign:
                 if(result==2) {
@@ -110,7 +94,6 @@ public class LonbeActivity extends AppCompatActivity {
     }
     public void setResultWhenFalse()
     {
-        //signview = (TextView)findViewById(R.id.SignView);
         if(result==0) signview.setText(">");
         if(result==1) signview.setText("=");
         if(result==2) signview.setText("<");
@@ -124,12 +107,34 @@ public class LonbeActivity extends AppCompatActivity {
     }
     public void addani()
     {
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+        int screenHeight = metrics.heightPixels;
+        int screenWidth =  metrics.widthPixels;
         Lonbe.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ani_1));
         imgViewLeft.setImageBitmap(Lonbe.addBitmapA());
         imgViewRight.setImageBitmap(Lonbe.addBitmapB());
         imgViewLeft.setY(250);
-        imgViewRight.setX(400);
+        imgViewRight.setX(screenWidth/2);
         imgViewRight.setY(250);
-
+    }
+    public void randomType(int Type)
+    {
+        Lonbe = new lonbe();
+        imgViewLeft.setImageResource(0);
+        imgViewRight.setImageResource(0);
+        numbera.setText("");
+        numberb.setText("");
+        result= Lonbe.result();
+        switch (Type){
+            case 0:
+                numbera.setText(Lonbe.getA());
+                numberb.setText(Lonbe.getB());
+                break;
+            case 1:
+                addani();
+        }
+        type= (int) (2*Math.random());
     }
 }
