@@ -17,7 +17,7 @@ public class lonbe {
     }
 
     public void setBitmap(Bitmap bitmap) {
-        this.bitmap = bitmap;
+        this.bitmap = Bitmap.createScaledBitmap(bitmap,80,80,true);
     }
 
     public String getA() {

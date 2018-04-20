@@ -115,9 +115,6 @@ public class LonbeActivity extends AppCompatActivity {
         Lonbe.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ani_1));
         imgViewLeft.setImageBitmap(Lonbe.addBitmapA());
         imgViewRight.setImageBitmap(Lonbe.addBitmapB());
-        imgViewLeft.setY(250);
-        imgViewRight.setX(screenWidth/2);
-        imgViewRight.setY(250);
     }
     public void randomType(int Type)
     {
