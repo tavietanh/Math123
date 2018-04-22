@@ -1,7 +1,7 @@
 package com.example.admin.math123;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -9,14 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.admin.math123.core.lonbe;
+import com.example.admin.math123.core.CustomDialogResult;
 
 public class LonbeActivity extends AppCompatActivity {
     lonbe Lonbe = new lonbe();
     int result = 3;
     int count = 1;
+    int point = 0;
     TextView signview;
     TextView numbera;
     TextView numberb;
@@ -27,7 +28,9 @@ public class LonbeActivity extends AppCompatActivity {
     TextView countview;
     ImageView imgViewLeft;
     ImageView imgViewRight;
+    TextView pointView;
     Bitmap icon;
+
     int type= (int) (2*Math.random());
 
     @Override
@@ -43,15 +46,21 @@ public class LonbeActivity extends AppCompatActivity {
         btnnext = (Button)findViewById(R.id.btnNext);
         countview = (TextView)findViewById(R.id.countView);
         countview.setText(String.valueOf(count));
-        imgViewLeft = (ImageView)findViewById(R.id.imageView2) ;
-        imgViewRight = (ImageView)findViewById(R.id.imageView3) ;
+        imgViewLeft = (ImageView)findViewById(R.id.imageLonbeLeft);
+        imgViewRight = (ImageView)findViewById(R.id.imageLonbeRight);
+        pointView = (TextView)findViewById(R.id.pointView);
         randomType(type);
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                count=count+1;
-                countview.setText(String.valueOf(count));
-                activeButton(true,View.INVISIBLE);
+                if(count==10)
+                {
+                    Intent intent = new Intent(LonbeActivity.this,PracticeActivity.class);
+                    startActivity(intent);
+                }
+                else count=count+1;
+                countview.setText(String.valueOf("Câu "+count));
+                activeButton(View.VISIBLE,View.INVISIBLE);
                 signview.setText("?");
                 randomType(type);
             }
@@ -62,32 +71,32 @@ public class LonbeActivity extends AppCompatActivity {
         switch (v.getId()){
             case R.id.btnLesssign:
                 if(result==2) {
-                    Toast.makeText(this, "Đúng ", Toast.LENGTH_LONG).show();
+                    setReultWhenTrue();
                     signview.setText("<");
                 }
                 else
                     setResultWhenFalse();
-                activeButton(false,View.VISIBLE);
+                activeButton(View.INVISIBLE,View.VISIBLE);
                 result=3;
                 break;
             case R.id.btnEqualsign:
                 if(result==1) {
-                    Toast.makeText(this, "Đúng ", Toast.LENGTH_LONG).show();
+                    setReultWhenTrue();
                     signview.setText("=");
                 }
                 else
                     setResultWhenFalse();
-                activeButton(false,View.VISIBLE);
+                activeButton(View.INVISIBLE,View.VISIBLE);
                 result=3;
                 break;
             case R.id.btnGreatersign:
                 if(result==0) {
-                    Toast.makeText(this, "Đúng ", Toast.LENGTH_LONG).show();
+                    setReultWhenTrue();
                     signview.setText(">");
                 }
                 else
                     setResultWhenFalse();
-                activeButton(false,View.VISIBLE);
+                activeButton(View.INVISIBLE,View.VISIBLE);
                 result=3;
                 break;
         }
@@ -97,22 +106,28 @@ public class LonbeActivity extends AppCompatActivity {
         if(result==0) signview.setText(">");
         if(result==1) signview.setText("=");
         if(result==2) signview.setText("<");
+        CustomDialogResult dialog = new CustomDialogResult(LonbeActivity.this,false);
+        dialog.showdialog();
     }
-    public void activeButton(boolean enable,int visible)
+    public void setReultWhenTrue()
     {
-        btnless.setEnabled(enable);
-        btnequal.setEnabled(enable);
-        btngreater.setEnabled(enable);
+        point +=10;
+        pointView.setText(String.valueOf(point));
+        CustomDialogResult dialog = new CustomDialogResult(LonbeActivity.this,true);
+        dialog.showdialog();
+    }
+    public void activeButton(int enable,int visible)
+    {
+        btnless.setVisibility(enable);
+        btnequal.setVisibility(enable);
+        btngreater.setVisibility(enable);
         btnnext.setVisibility(visible);
     }
     public void addani()
     {
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
-
-        int screenHeight = metrics.heightPixels;
-        int screenWidth =  metrics.widthPixels;
-        Lonbe.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ani_1));
+        Lonbe.setBitmap(this.getApplicationContext());
         imgViewLeft.setImageBitmap(Lonbe.addBitmapA());
         imgViewRight.setImageBitmap(Lonbe.addBitmapB());
     }
@@ -134,4 +149,5 @@ public class LonbeActivity extends AppCompatActivity {
         }
         type= (int) (2*Math.random());
     }
+
 }

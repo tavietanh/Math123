@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:orientation="vertical"
+    tools:layout_editor_absoluteX="67dp"
+    tools:layout_editor_absoluteY="158dp">
+
+    <TextView
+        android:id="@+id/textResultdialog"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:text="Đúng rồi + 10 điểm"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="25sp" />
+
+    <ImageView
+        android:id="@+id/imageDialog"
+        android:layout_width="match_parent"
+        android:layout_height="132dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="37dp"
+        app:srcCompat="@drawable/simba_sad" />
+
+    <Button
+        android:id="@+id/btnDialog"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageDialog"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/holo_orange_dark"
+        android:baselineAligned="false"
+        android:text="Tiếp tục" />
+
+</RelativeLayout>
