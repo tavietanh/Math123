@@ -1,7 +1,6 @@
 package com.example.admin.math123;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -29,8 +28,6 @@ public class LonbeActivity extends AppCompatActivity {
     ImageView imgViewLeft;
     ImageView imgViewRight;
     TextView pointView;
-    Bitmap icon;
-
     int type= (int) (2*Math.random());
 
     @Override
@@ -44,11 +41,11 @@ public class LonbeActivity extends AppCompatActivity {
         btnequal = (Button)findViewById(R.id.btnEqualsign);
         btngreater = (Button)findViewById(R.id.btnGreatersign);
         btnnext = (Button)findViewById(R.id.btnNext);
-        countview = (TextView)findViewById(R.id.countView);
+        countview = (TextView)findViewById(R.id.countLonbe);
         countview.setText(String.valueOf(count));
         imgViewLeft = (ImageView)findViewById(R.id.imageLonbeLeft);
         imgViewRight = (ImageView)findViewById(R.id.imageLonbeRight);
-        pointView = (TextView)findViewById(R.id.pointView);
+        pointView = (TextView)findViewById(R.id.pointLonbe);
         randomType(type);
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,8 +122,6 @@ public class LonbeActivity extends AppCompatActivity {
     }
     public void addani()
     {
-        DisplayMetrics metrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(metrics);
         Lonbe.setBitmap(this.getApplicationContext());
         imgViewLeft.setImageBitmap(Lonbe.addBitmapA());
         imgViewRight.setImageBitmap(Lonbe.addBitmapB());

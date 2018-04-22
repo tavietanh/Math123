@@ -14,14 +14,8 @@ public class lonbe {
     int a = (int) (11*Math.random());
     int b = (int) (11*Math.random());
     Bitmap bitmap ;
-    Context context;
     ArrayList<Bitmap> arrayBitmap=new ArrayList<Bitmap>();
-    public void setA() {
-        this.a = (int) (11*Math.random());
-    }
-    public void setB() {
-        this.b = (int) (10*Math.random());
-    }
+
 
     public void setBitmap(Context context) {
         Random mRand = new Random();
