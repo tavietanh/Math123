@@ -1,13 +1,125 @@
 package com.example.admin.math123;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.admin.math123.core.tapdem;
+import com.example.admin.math123.core.CustomDialogResult;
 
 public class TapdemActivity extends AppCompatActivity {
-
+    tapdem Tapdem;
+    int result = -1;
+    int count = 1;
+    int point = 0;
+    Button A;
+    Button B;
+    Button C;
+    Button D;
+    Button btnNext;
+    TextView countview;
+    TextView pointView;
+    ImageView imageTapdem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tapdem);
+        A = (Button)findViewById(R.id.btnTapdemA);
+        B = (Button)findViewById(R.id.btnTapdemB);
+        C = (Button)findViewById(R.id.btnTapdemC);
+        D = (Button)findViewById(R.id.btnTapdemD);
+        imageTapdem = (ImageView)findViewById(R.id.imageTapdem);
+        pointView = (TextView)findViewById(R.id.pointTapdem);
+        countview = (TextView)findViewById(R.id.countTapdem);
+        btnNext = (Button)findViewById(R.id.btnNextTapdem);
+        setData();
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(count==10)
+                {
+                    Intent intent = new Intent(TapdemActivity.this,PracticeActivity.class);
+                    startActivity(intent);
+                }
+                else count=count+1;
+                countview.setText(String.valueOf("Câu "+count));
+                activeButton(View.VISIBLE,View.INVISIBLE);
+                setData();
+            }
+        });
     }
+    public void onButtonClick(View v){
+        switch (v.getId()){
+            case R.id.btnTapdemA:
+                if(result==0)
+                    setReultWhenTrue();
+                else
+                    setResultWhenFalse();
+                activeButton(View.INVISIBLE,View.VISIBLE);
+                result=-1;
+                break;
+            case R.id.btnTapdemB:
+                if(result==1)
+                    setReultWhenTrue();
+                else
+                    setResultWhenFalse();
+                activeButton(View.INVISIBLE,View.VISIBLE);
+                result=-1;
+                break;
+            case R.id.btnTapdemC:
+                if(result==2)
+                    setReultWhenTrue();
+                else
+                    setResultWhenFalse();
+                activeButton(View.INVISIBLE,View.VISIBLE);
+                result=-1;
+                break;
+            case R.id.btnTapdemD:
+                if(result==3)
+                    setReultWhenTrue();
+
+                else
+                    setResultWhenFalse();
+                activeButton(View.INVISIBLE,View.VISIBLE);
+                result=-1;
+                break;
+        }
+    }
+    public void activeButton(int enable,int visible)
+    {
+        A.setVisibility(enable);
+        B.setVisibility(enable);
+        C.setVisibility(enable);
+        D.setVisibility(enable);
+        btnNext.setVisibility(visible);
+    }
+    public void setReultWhenTrue()
+    {
+        point +=10;
+        pointView.setText(String.valueOf(point));
+        CustomDialogResult dialog = new CustomDialogResult(TapdemActivity.this,true);
+        dialog.showdialog();
+    }
+    public void setResultWhenFalse()
+    {
+        CustomDialogResult dialog = new CustomDialogResult(TapdemActivity.this,false);
+        dialog.showdialog();
+    }
+    public void addanimation()
+    {
+        Tapdem.setBitmap(this.getApplicationContext());
+        imageTapdem.setImageBitmap(Tapdem.addBitmap());
+    }
+    public void setData(){
+        Tapdem = new tapdem();
+        Tapdem.setResultToButton(A,B,C,D);
+        imageTapdem.setImageResource(0);
+        addanimation();
+        result=Tapdem.getResult();
+    }
+
 }

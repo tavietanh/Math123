@@ -1,23 +1,42 @@
 package com.example.admin.math123.core;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+
+import com.example.admin.math123.R;
+
 import java.util.ArrayList;
+import java.util.Random;
 
 public class lonbe {
     int a = (int) (11*Math.random());
     int b = (int) (11*Math.random());
     Bitmap bitmap ;
     ArrayList<Bitmap> arrayBitmap=new ArrayList<Bitmap>();
-    public void setA() {
-        this.a = (int) (11*Math.random());
-    }
-    public void setB() {
-        this.b = (int) (10*Math.random());
-    }
 
-    public void setBitmap(Bitmap bitmap) {
-        this.bitmap = Bitmap.createScaledBitmap(bitmap,80,80,true);
+
+    public void setBitmap(Context context) {
+        Random mRand = new Random();
+        int mResource = R.drawable.ani_1;
+        int x = mRand.nextInt(4);
+        switch (x) {
+            case 0:
+                mResource = R.drawable.ani_1;
+                break;
+            case 1:
+                mResource = R.drawable.ani_2;
+                break;
+            case 2:
+                mResource = R.drawable.ani_3;
+                break;
+            case 3:
+                mResource = R.drawable.ani_4;
+                break;
+        }
+        Bitmap bm = BitmapFactory.decodeResource(context.getResources(), mResource);
+        this.bitmap = Bitmap.createScaledBitmap(bm,80,80,true);
     }
 
     public String getA() {
