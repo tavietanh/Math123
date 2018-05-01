@@ -40,17 +40,17 @@ public class tapdem {
                 break;
         }
         Bitmap bm = BitmapFactory.decodeResource(context.getResources(), mResource);
-        this.bitmap = Bitmap.createScaledBitmap(bm,80,80,true);
+        this.bitmap = Bitmap.createScaledBitmap(bm,220,220,true);
     }
     Bitmap combineImageIntoOne(ArrayList<Bitmap> bitmap, int left, int top) {
 
-        Bitmap temp = Bitmap.createBitmap(800, 600, Bitmap.Config.ARGB_8888);
+        Bitmap temp = Bitmap.createBitmap(1280, 960, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(temp);
         int Left = (int) (800*Math.random());
         int Top = (int) (600*Math.random());
         for (int i = 0; i < bitmap.size(); i++) {
-            Left = (int) (720*Math.random());
-            Top = (int) (520*Math.random());
+            Left = (int) (1040*Math.random());
+            Top = (int) (740*Math.random());
             canvas.drawBitmap(bitmap.get(i), Left, Top, null);
         }
         return temp;

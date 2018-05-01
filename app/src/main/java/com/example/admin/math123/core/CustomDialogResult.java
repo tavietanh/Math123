@@ -23,17 +23,18 @@ public class CustomDialogResult extends AlertDialog {
         if(result)
         {
             textDialog.setText("Đúng rồi + 10 điểm");
-            textDialog.setTextColor(view.getResources().getColor(R.color.colorRed));
+            textDialog.setTextColor(view.getResources().getColor(R.color.colorWhite));
             imageDiaglog.setImageDrawable(view.getResources().getDrawable(R.drawable.simba_fun));
         }
         else
         {
             textDialog.setText("Sai rồi");
-            textDialog.setTextColor(view.getResources().getColor(R.color.colorGreen));
+            textDialog.setTextColor(view.getResources().getColor(R.color.colorBrown));
             imageDiaglog.setImageDrawable(view.getResources().getDrawable(R.drawable.simba_sad));
         }
         dialog.setView(view);
         Dialog = dialog.create();
+
         btnDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

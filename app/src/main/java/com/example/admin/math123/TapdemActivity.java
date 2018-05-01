@@ -42,13 +42,16 @@ public class TapdemActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(count==10)
                 {
-                    Intent intent = new Intent(TapdemActivity.this,PracticeActivity.class);
+                    Intent intent = new Intent(TapdemActivity.this,ResultActivity.class);
+                    intent.putExtra("point",String.valueOf(point));
                     startActivity(intent);
                 }
-                else count=count+1;
-                countview.setText(String.valueOf("Câu "+count));
-                activeButton(View.VISIBLE,View.INVISIBLE);
-                setData();
+                else {
+                    count = count + 1;
+                    countview.setText(String.valueOf("Câu " + count));
+                    activeButton(View.VISIBLE, View.INVISIBLE);
+                    setData();
+                }
             }
         });
     }

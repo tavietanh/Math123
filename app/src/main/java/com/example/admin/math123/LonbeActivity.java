@@ -46,20 +46,24 @@ public class LonbeActivity extends AppCompatActivity {
         imgViewLeft = (ImageView)findViewById(R.id.imageLonbeLeft);
         imgViewRight = (ImageView)findViewById(R.id.imageLonbeRight);
         pointView = (TextView)findViewById(R.id.pointLonbe);
+        countview.setText(String.valueOf("Câu "+count));
         randomType(type);
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(count==10)
                 {
-                    Intent intent = new Intent(LonbeActivity.this,PracticeActivity.class);
+                    Intent intent = new Intent(LonbeActivity.this,ResultActivity.class);
+                    intent.putExtra("point",String.valueOf(point));
                     startActivity(intent);
                 }
-                else count=count+1;
-                countview.setText(String.valueOf("Câu "+count));
-                activeButton(View.VISIBLE,View.INVISIBLE);
-                signview.setText("?");
-                randomType(type);
+                else {
+                    count = count + 1;
+                    countview.setText(String.valueOf("Câu " + count));
+                    activeButton(View.VISIBLE, View.INVISIBLE);
+                    signview.setText("?");
+                    randomType(type);
+                }
             }
         });
     }
