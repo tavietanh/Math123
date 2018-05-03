@@ -3,116 +3,283 @@ package com.example.admin.math123.core;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import java.util.ArrayList;
+import android.widget.Button;
+import java.util.Random;
 
 public class tinhnham {
-    int a = (int) (11*Math.random());
-    int b = (int) (11*Math.random());
-    int c;
-    int DapAnA;
-    int DapAnB;
-    int DapAnC;
-    int DapAnD;
+    int numbera = (int) (10*Math.random());
+    int numberb = (int) (10*Math.random());
+    int numberc;
 
-    String Signview = "+-";
     String Sign ="";
+    Random rd=new Random();
+    int x = rd.nextInt((1-0+1)+0);
+    int type = rd.nextInt((3-0+1)+0);
+    int result = rd.nextInt((3-0+1)+0);
 
-    Bitmap bitmap ;
-    ArrayList<Bitmap> arrayBitmap=new ArrayList<Bitmap>();
+    public int getResult() {
+        return result;
+    }
+
+    public void setSign() {
+        switch (x) {
+            case 0:
+                Sign = "+";
+                break;
+            case 1:
+                Sign = "-";
+                break;
+        }
+    }
+
     public void setA() {
-        this.a = (int) (11*Math.random());
+        this.numbera = (int) (10*Math.random());
+        while (numbera == 0) {
+            this.numbera = (int) (10 * Math.random());
+        }
     }
     public void setB() {
-        this.b = (int) (10*Math.random());
-        while (b > a)
-            this.b = (int) (10*Math.random());
+        this.numberb = (int) (10*Math.random());
+        while ((x == 1) && (this.numberb > this.numbera)) {
+            this.numberb = (int) (10 * Math.random());
+        }
     }
 
-    public void setSign(){
-        String Dau;
-        int temp = (int) Math.round(Math.random() * Signview.length());
-        Sign += Signview.charAt(temp);
+    public void setC(){
+        if(x == 0)
+            this.numberc = this.numbera + this.numberb;
+        else
+            this.numberc = this.numbera - this.numberb;
     }
 
-    public void setBitmap(Bitmap bitmap) {
-        this.bitmap = Bitmap.createScaledBitmap(bitmap,80,80,true);
-    }
+
 
     public String getA() {
-
-        return String.valueOf(a);
+        return String.valueOf(numbera);
     }
 
     public String getB() {
 
-        return String.valueOf(b);
+        return String.valueOf(numberb);
+    }
+
+    public String getC(){
+        return String.valueOf(numberc);
     }
 
     public String getSign(){
         return Sign;
     }
 
-    public int result()
-    {
-        if(Sign.equals("+"))
-            c += a + b;
-        else
-            c += a - b;
-        return c;
+    public int getType(){
+        return type;
     }
 
-    public void setDapAnA() {this.DapAnA = c + (int) (4*Math.random());}
-    public void setDapAnB() {this.DapAnB = c + (int) (4*Math.random());}
-    public void setDapAnC() {this.DapAnC = c + (int) (4*Math.random());}
-    public void setDapAnD() {this.DapAnD = c + (int) (4*Math.random());}
-    public String getDapAnA(){return String.valueOf(DapAnA);}
-    public String getDapAnB(){return String.valueOf(DapAnB);}
-    public String getDapAnC(){return String.valueOf(DapAnC);}
-    public String getDapAnD(){return String.valueOf(DapAnD);}
-
-    Bitmap combineImageIntoOne(ArrayList<Bitmap> bitmap,int left,int top) {
-        int w = 0, h = bitmap.get(0).getHeight();
-        for (int i = 0; i < bitmap.size(); i++) {
-            if (i < 4) {
-                w += bitmap.get(i).getWidth();
-            }
-            if(i==3 || i==7) {
-                h += bitmap.get(i).getHeight();
-            }
-        }
-
-        Bitmap temp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(temp);
-        int Left = left;
-        int Top = top;
-        for (int i = 0; i < bitmap.size(); i++) {
-            Left = (i==0?Left:Left+bitmap.get(i).getWidth());
-            if(i==4 || i ==8) {
-                Left=left;
-                Top=Top+bitmap.get(i).getHeight();
-            }
-            canvas.drawBitmap(bitmap.get(i), Left, Top, null);
-
-        }
-        return temp;
-    }
-    public Bitmap addBitmapA()
-    {
-        if(a==0) return null;
-        arrayBitmap.clear();
-        for(int i = 0;i<a;i++)
+    public void setResultToButton(Button A, Button B,Button C,Button D)
         {
-            arrayBitmap.add(bitmap);
+            int a;
+            int b;
+            int c;
+            int d;
+            if (type == 0){
+                switch (result){
+                    case 0:
+                        A.setText(String.valueOf(numberc));
+                        do{
+                            b = (int) (11*Math.random());
+                            B.setText(String.valueOf(b));
+                        }while(b==numberc);
+                        do{
+                            c = (int) (11*Math.random());
+                            C.setText(String.valueOf(c));
+                        }while(c==numberc||b==c);
+                        do{
+                            d = (int) (11*Math.random());
+                            D.setText(String.valueOf(d));
+                        }while(d==numberc||c==d||b==d);
+                        break;
+                    case 1:
+                        B.setText(String.valueOf(numberc));
+                        do{
+                            a = (int) (11*Math.random());
+                            A.setText(String.valueOf(a));
+                        }while(a==numberc);
+                        do{
+                            c = (int) (11*Math.random());
+                            C.setText(String.valueOf(c));
+                        }while(c==numberc||a==c);
+                        do{
+                            d = (int) (11*Math.random());
+                            D.setText(String.valueOf(d));
+                        }while(d==numberc||c==d||a==d);
+                        break;
+                    case 2:
+                        C.setText(String.valueOf(numberc));
+                        do{
+                            b = (int) (11*Math.random());
+                            B.setText(String.valueOf(b));
+                        }while(b==numberc);
+                        do{
+                            a = (int) (11*Math.random());
+                            A.setText(String.valueOf(a));
+                        }while(a==numberc||b==a);
+                        do{
+                            d = (int) (11*Math.random());
+                            D.setText(String.valueOf(d));
+                        }while(d==numberc||a==d||b==d);
+                        break;
+                    case 3:
+                        D.setText(String.valueOf(numberc));
+                        do{
+                            b = (int) (11*Math.random());
+                            B.setText(String.valueOf(b));
+                        }while(b==numberc);
+                        do{
+                            c = (int) (11*Math.random());
+                            C.setText(String.valueOf(c));
+                        }while(c==numberc||b==c);
+                        do{
+                            a = (int) (11*Math.random());
+                            A.setText(String.valueOf(a));
+                        }while(a==numberc||c==a||b==a);
+                        break;
+                }
+                }
+            else if(type == 1){
+                switch (result){
+                    case 0:
+                        A.setText(String.valueOf(numbera));
+                        do{
+                            b = (int) (11*Math.random());
+                            B.setText(String.valueOf(b));
+                        }while(b==numbera);
+                        do{
+                            c = (int) (11*Math.random());
+                            C.setText(String.valueOf(c));
+                        }while(c==numbera||b==c);
+                        do{
+                            d = (int) (11*Math.random());
+                            D.setText(String.valueOf(d));
+                        }while(d==numbera||c==d||b==d);
+                        break;
+                    case 1:
+                        B.setText(String.valueOf(numbera));
+                        do{
+                            a = (int) (11*Math.random());
+                            A.setText(String.valueOf(a));
+                        }while(a==numbera);
+                        do{
+                            c = (int) (11*Math.random());
+                            C.setText(String.valueOf(c));
+                        }while(c==numbera||a==c);
+                        do{
+                            d = (int) (11*Math.random());
+                            D.setText(String.valueOf(d));
+                        }while(d==numbera||c==d||a==d);
+                        break;
+                    case 2:
+                        C.setText(String.valueOf(numbera));
+                        do{
+                            b = (int) (11*Math.random());
+                            B.setText(String.valueOf(b));
+                        }while(b==numbera);
+                        do{
+                            a = (int) (11*Math.random());
+                            A.setText(String.valueOf(a));
+                        }while(a==numbera||b==a);
+                        do{
+                            d = (int) (11*Math.random());
+                            D.setText(String.valueOf(d));
+                        }while(d==numbera||a==d||b==d);
+                        break;
+                    case 3:
+                        D.setText(String.valueOf(numbera));
+                        do{
+                            b = (int) (11*Math.random());
+                            B.setText(String.valueOf(b));
+                        }while(b==numbera);
+                        do{
+                            c = (int) (11*Math.random());
+                            C.setText(String.valueOf(c));
+                        }while(c==numbera||b==c);
+                        do{
+                            a = (int) (11*Math.random());
+                            A.setText(String.valueOf(a));
+                        }while(a==numbera||c==a||b==a);
+                        break;
+                }
+            }
+            else if (type == 2){
+                switch (result){
+                    case 0:
+                        A.setText(String.valueOf(numberb));
+                        do{
+                            b = (int) (11*Math.random());
+                            B.setText(String.valueOf(b));
+                        }while(b==numberb);
+                        do{
+                            c = (int) (11*Math.random());
+                            C.setText(String.valueOf(c));
+                        }while(c==numberb||b==c);
+                        do{
+                            d = (int) (11*Math.random());
+                            D.setText(String.valueOf(d));
+                        }while(d==numberb||c==d||b==d);
+                        break;
+                    case 1:
+                        B.setText(String.valueOf(numberb));
+                        do{
+                            a = (int) (11*Math.random());
+                            A.setText(String.valueOf(a));
+                        }while(a==numberb);
+                        do{
+                            c = (int) (11*Math.random());
+                            C.setText(String.valueOf(c));
+                        }while(c==numberb||a==c);
+                        do{
+                            d = (int) (11*Math.random());
+                            D.setText(String.valueOf(d));
+                        }while(d==numberb||c==d||a==d);
+                        break;
+                    case 2:
+                        C.setText(String.valueOf(numberb));
+                        do{
+                            b = (int) (11*Math.random());
+                            B.setText(String.valueOf(b));
+                        }while(b==numberb);
+                        do{
+                            a = (int) (11*Math.random());
+                            A.setText(String.valueOf(a));
+                        }while(a==numberb||b==a);
+                        do{
+                            d = (int) (11*Math.random());
+                            D.setText(String.valueOf(d));
+                        }while(d==numberb||a==d||b==d);
+                        break;
+                    case 3:
+                        D.setText(String.valueOf(numberb));
+                        do{
+                            b = (int) (11*Math.random());
+                            B.setText(String.valueOf(b));
+                        }while(b==numberb);
+                        do{
+                            c = (int) (11*Math.random());
+                            C.setText(String.valueOf(c));
+                        }while(c==numberb||b==c);
+                        do{
+                            a = (int) (11*Math.random());
+                            A.setText(String.valueOf(a));
+                        }while(a==numberb||c==a||b==a);
+                        break;
+                }
+            }
+            else
+            {
+                B.setText(String.valueOf("+"));
+                C.setText(String.valueOf("-"));
+            }
         }
-        return combineImageIntoOne(arrayBitmap,0,0);
-    }
-    public Bitmap addBitmapB()
-    {
-        if(b==0) return null;
-        arrayBitmap.clear();
-        for(int i = 0;i<b;i++)
-        {
-            arrayBitmap.add(bitmap);
-        }
-        return combineImageIntoOne(arrayBitmap,0,0);
-    }
 }
+
+
+

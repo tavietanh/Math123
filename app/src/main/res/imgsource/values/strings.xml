@@ -14,5 +14,6 @@
     <string name="DapAnD">4</string>
     <string name="TinhNham_Sign">+</string>
     <string name="DiemSo">0</string>
-    <string name="Cau">1</string>
+    <string name="Cau">Câu 1</string>
+    <string name="TinhNham_numberC">3</string>
 </resources>
