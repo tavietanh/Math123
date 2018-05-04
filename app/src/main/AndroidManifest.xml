@@ -23,7 +23,8 @@
         <activity android:name=".ToandoActivity" />
         <activity android:name=".TapdemActivity" />
         <activity android:name=".LonbeActivity" />
-        <activity android:name=".TinhnhamActivity"></activity>
+        <activity android:name=".TinhnhamActivity" />
+        <activity android:name=".ResultActivity"></activity>
     </application>
 
 </manifest>
