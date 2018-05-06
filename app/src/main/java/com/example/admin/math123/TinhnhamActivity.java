@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Intent;
+import java.util.Random;
 
 import com.example.admin.math123.core.tinhnham;
 import com.example.admin.math123.core.CustomDialogResult;
@@ -18,10 +19,11 @@ import com.example.admin.math123.core.CustomDialogResult;
 public class TinhnhamActivity extends AppCompatActivity {
 
     tinhnham TinhNham = new tinhnham();
-    int result = 2;
+    int result = 1;
     int count = 1;
     int point = 0;
     TextView sign;
+    TextView sign2;
     TextView numbera;
     TextView numberb;
     TextView numberc;
@@ -33,16 +35,18 @@ public class TinhnhamActivity extends AppCompatActivity {
     Button btnDapAnC;
     Button btnDapAnD;
     Button btnnext;
+    ImageView imgViewLeft;
+    ImageView imgViewRight;
 
     Bitmap icon;
-    int type= (int) (2*Math.random());
-
+    int type = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tinhnham);
         sign = (TextView)findViewById(R.id.Sign);
+        sign2 = (TextView)findViewById(R.id.Sign2);
         signequal = (TextView)findViewById(R.id.signequal);
         numbera = (TextView)findViewById(R.id.numbera);
         numberb = (TextView)findViewById(R.id.numberb);
@@ -52,6 +56,8 @@ public class TinhnhamActivity extends AppCompatActivity {
         btnDapAnC = (Button)findViewById(R.id.btnDapAnC);
         btnDapAnD = (Button)findViewById(R.id.btnDapAnD);
         btnnext = (Button)findViewById(R.id.btnNext);
+        imgViewLeft = (ImageView)findViewById(R.id.imageTinhNhamLeft);
+        imgViewRight = (ImageView)findViewById(R.id.imageTinhNhamRight);
         pointView = (TextView)findViewById(R.id.pointTinhNham);
         countview = (TextView)findViewById(R.id.countTinhnham);
         countview.setText(String.valueOf(count));
@@ -68,16 +74,8 @@ public class TinhnhamActivity extends AppCompatActivity {
                 countview.setText(String.valueOf("Câu "+count));
                 activeButton(View.VISIBLE,View.INVISIBLE);
                 randomType(type);
-                if(type == 3){
-                    btnDapAnA.setVisibility(View.INVISIBLE);
-                    btnDapAnD.setVisibility(View.INVISIBLE);
-                }
             }
         });
-        if(type == 3){
-            btnDapAnA.setVisibility(View.INVISIBLE);
-            btnDapAnD.setVisibility(View.INVISIBLE);
-        }
     }
     public void onButtonClick(View v){
         if(type != 3)
@@ -122,16 +120,15 @@ public class TinhnhamActivity extends AppCompatActivity {
         else
             switch (v.getId()){
                 case R.id.btnDapAnB:
-                    if(result == 0 || result==1) {
+                    if(result == 0)
                         setReultWhenTrue();
-                    }
                     else
                         setResultWhenFalse();
                     activeButton(View.INVISIBLE,View.VISIBLE);
                     result=4;
                     break;
                 case R.id.btnDapAnC:
-                    if(result==2 || result == 3) {
+                    if(result == 1) {
                         setReultWhenTrue();
                     }
                     else
@@ -164,6 +161,12 @@ public class TinhnhamActivity extends AppCompatActivity {
         btnnext.setVisibility(visible);
     }
 
+    public void addani()
+    {
+        TinhNham.setBitmap(this.getApplicationContext());
+        imgViewLeft.setImageBitmap(TinhNham.addBitmapA());
+        imgViewRight.setImageBitmap(TinhNham.addBitmapB());
+    }
 
     public void randomType(int Type)
     {
@@ -179,28 +182,76 @@ public class TinhnhamActivity extends AppCompatActivity {
         TinhNham.setB();
         TinhNham.setSign();
         TinhNham.setC();
+        TinhNham.randomResult();
         result= TinhNham.getResult();
-        type= TinhNham.getType();
+        Type= TinhNham.getType();
+        type = Type;
 
         numbera.setText(TinhNham.getA());
         numberb.setText(TinhNham.getB());
         sign.setText(TinhNham.getSign());
+        sign2.setText(TinhNham.getSign());
         numberc.setText(TinhNham.getC());
         TinhNham.setResultToButton(btnDapAnA,btnDapAnB,btnDapAnC,btnDapAnD);
-        switch (type){
+        switch (Type){
             case 0:
                 numberc.setText("?");
+                visible(Type);
                 break;
             case 1:
                 numbera.setText("?");
+                visible(Type);
                 break;
             case 2:
                 numberb.setText("?");
+                visible(Type);
                 break;
             case 3:
                 sign.setText("?");
+                visible(Type);
+                break;
+            case 4:
+                addani();
+                visible(Type);
                 break;
         }
 
+    }
+
+    public void visible(int a) {
+        if (a == 3) {
+            numbera.setVisibility(View.VISIBLE);
+            numberb.setVisibility(View.VISIBLE);
+            numberc.setVisibility(View.VISIBLE);
+            sign.setVisibility(View.VISIBLE);
+            signequal.setVisibility((View.VISIBLE));
+            sign2.setVisibility(View.INVISIBLE);
+            btnDapAnA.setVisibility(View.INVISIBLE);
+            btnDapAnD.setVisibility(View.INVISIBLE);
+            imgViewLeft.setVisibility(View.INVISIBLE);
+            imgViewRight.setVisibility(View.INVISIBLE);
+        } else if (a == 4){
+            numbera.setVisibility(View.INVISIBLE);
+            numberb.setVisibility(View.INVISIBLE);
+            numberc.setVisibility(View.INVISIBLE);
+            sign.setVisibility(View.INVISIBLE);
+            signequal.setVisibility((View.INVISIBLE));
+            sign2.setVisibility(View.VISIBLE);
+            btnDapAnA.setVisibility(View.VISIBLE);
+            btnDapAnD.setVisibility(View.VISIBLE);
+            imgViewLeft.setVisibility(View.VISIBLE);
+            imgViewRight.setVisibility(View.VISIBLE);
+        } else{
+            numbera.setVisibility(View.VISIBLE);
+            numberb.setVisibility(View.VISIBLE);
+            numberc.setVisibility(View.VISIBLE);
+            sign.setVisibility(View.VISIBLE);
+            signequal.setVisibility((View.VISIBLE));
+            sign2.setVisibility(View.INVISIBLE);
+            btnDapAnA.setVisibility(View.VISIBLE);
+            btnDapAnD.setVisibility(View.VISIBLE);
+            imgViewLeft.setVisibility(View.INVISIBLE);
+            imgViewRight.setVisibility(View.INVISIBLE);
+        }
     }
 }
