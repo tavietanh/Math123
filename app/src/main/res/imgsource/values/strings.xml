@@ -16,4 +16,14 @@
     <string name="DiemSo">0</string>
     <string name="Cau">Câu 1</string>
     <string name="TinhNham_numberC">3</string>
+    <string name="Logic1stText">Bạn Toàn có</string>
+    <string name="Logic_numberA" >1 viên bi,</string>
+    <string name="Logic2ndText">bạn Toàn thắng</string>
+    <string name="Logic_numberB">2 viên bi.</string>
+    <string name="Logic3rdText">Hỏi bạn Toàn có mấy viên bi?</string>
+    <string name="LogicHoiKQ">= ?</string>
+    <string name="Logic_SignA">+</string>
+    <string name="Logic_SignB">-</string>
+    <string name="Logic_KQA">= 1</string>
+    <string name="Logic_KQB">= 1</string>
 </resources>
