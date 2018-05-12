@@ -9,96 +9,29 @@
     tools:ignore="ExtraText">
 
     <TextView
-        android:id="@+id/firstText"
-        android:layout_width="wrap_content"
-        android:layout_height="33dp"
+        android:id="@+id/Content"
+        android:layout_width="281dp"
+        android:layout_height="145dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="100dp"
-        android:text="@string/Logic1stText"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/numbera"
-        app:layout_constraintHorizontal_bias="0.016"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/numbera"
-        android:layout_width="119dp"
-        android:layout_height="33dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginTop="100dp"
-        android:text="@string/Logic_numberA"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/secondText"
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="100dp"
-        android:text="@string/Logic2ndText"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/numberb"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.093" />
-
-    <TextView
-        android:id="@+id/numberb"
-        android:layout_width="113dp"
-        android:layout_height="33dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginTop="100dp"
-        android:text="@string/Logic_numberB"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.093" />
-
-    <TextView
-        android:id="@+id/thirdText"
-        android:layout_width="304dp"
-        android:layout_height="67dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/Logic3rdText"
+        android:text="@string/LogicText"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.34" />
+        app:layout_constraintVertical_bias="0.263" />
 
     <Button
         android:id="@+id/btnDapAnA"
         android:layout_width="80dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="144dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
@@ -112,8 +45,8 @@
         app:layout_constraintEnd_toStartOf="@+id/btnDapAnB"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/thirdText"
-        app:layout_constraintVertical_bias="0.446" />
+        app:layout_constraintTop_toBottomOf="@+id/Content"
+        app:layout_constraintVertical_bias="0.968" />
 
     <Button
         android:id="@+id/btnDapAnB"
@@ -131,7 +64,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnDapAnC"
         app:layout_constraintStart_toEndOf="@+id/btnDapAnA"
-        app:layout_constraintTop_toBottomOf="@+id/thirdText"
+        app:layout_constraintTop_toBottomOf="@+id/Content"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
@@ -148,7 +81,9 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnDapAnD"
-        app:layout_constraintStart_toEndOf="@+id/btnDapAnB" />
+        app:layout_constraintStart_toEndOf="@+id/btnDapAnB"
+        app:layout_constraintTop_toBottomOf="@+id/Content"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnDapAnD"
@@ -167,7 +102,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnDapAnC"
-        app:layout_constraintTop_toBottomOf="@+id/thirdText"
+        app:layout_constraintTop_toBottomOf="@+id/Content"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView

@@ -1,13 +1,6 @@
 package com.example.admin.math123.core;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import java.util.ArrayList;
 import android.widget.Button;
-
-import com.example.admin.math123.R;
 
 import java.util.Random;
 
@@ -22,6 +15,7 @@ public class toando {
     int x = rd.nextInt((1-0+1)+0);
     int type = rd.nextInt((2-0+1)+0);
     int result = rd.nextInt((3-0+1)+0);
+    int MauCau = rd.nextInt((2-0+1)+0);
 
     public int getResult() {
         return result;
@@ -58,29 +52,84 @@ public class toando {
             this.numberd = this.numbera + this.numberb;
     }
 
-    public String getFirst(){
-        return String.valueOf("Bạn Toàn có");
+    public String getContent(){
+        if(type == 0)
+            switch (MauCau) {
+                case 0:
+                    if (x == 0)
+                        return "Bạn Toàn có " + String.valueOf(numbera) + " viên bi, bạn Toàn thắng " + String.valueOf(numberb)
+                                + " viên bi. Hỏi bạn Toàn có bao nhiêu viên bi?";
+                    else
+                        return "Bạn Toàn có " + String.valueOf(numbera) + " viên bi, bạn Toàn thua " + String.valueOf(numberb)
+                                + " viên bi. Hỏi bạn Toàn có bao nhiêu viên bi?";
+                case 1:
+                    if (x == 0)
+                        return "Lan hái được " + String.valueOf(numbera) + " bông hoa, Thanh hái được " +String.valueOf(numberb)
+                                + " bông hoa. Hỏi cả hai bạn hái được bao nhiêu bông hoa?";
+                    else
+                        return "Lan hái được " + String.valueOf(numbera) + " bông hoa, Lan cho Thanh " +String.valueOf(numberb)
+                                + " bông hoa. Hỏi Lan còn bao nhiêu bông hoa?";
+                case 2:
+                    if (x == 0)
+                        return "Bạn Nam có " + String.valueOf(numbera) + " quả bóng màu đỏ, " +String.valueOf(numberb)
+                                + " quả bóng màu xanh. Hỏi bạn Nam có bao nhiêu quả bóng?";
+                    else
+                        return "Bạn Nam có " + String.valueOf(numbera) + " quả bóng màu đỏ, " +String.valueOf(numberb)
+                                + " quả bóng màu xanh. Hỏi bóng màu đỏ nhiều hơn bóng màu xanh bao nhiêu?";
+            }
+        else if (type == 2){
+            switch (MauCau) {
+                case 0:
+                    if (x == 0)
+                        return "Bạn Dũng có " + String.valueOf(numbera) + " nhãn vở. Sau khi được cho, bạn Dũng có "
+                                + String.valueOf(numberc) + " nhãn vở. Hỏi bạn Dũng đã được cho bao nhiêu nhãn vở?";
+                    else
+                        return "Bạn Dũng có " + String.valueOf(numbera) + " nhãn vở. Sau khi cho bạn thì Dũng còn "
+                                + String.valueOf(numberc) + " nhãn vở. Hỏi bạn Dũng đã cho bạn bao nhiêu nhãn vở?";
+                case 1:
+                    if (x == 0)
+                        return "Lớp 1A có " + String.valueOf(numbera) + " học sinh giỏi. Cả 2 lớp có "
+                                +String.valueOf(numberc) + " học sinh giỏi. Hỏi lớp 1B có bao nhiêu học sinh giỏi?";
+                    else
+                        return "Lớp 1A có " + String.valueOf(numbera) + " học sinh giỏi. Lớp 1A nhiều hơn lớp 1B "
+                                +String.valueOf(numberc) + " học sinh giỏi. Hỏi lớp 1B có bao nhiêu học sinh giỏi?";
+                case 2:
+                    if (x == 0)
+                        return "Lớp Lan có " + String.valueOf(numberc) + " bạn học sinh, " + String.valueOf(numbera)
+                                + " bạn học vẽ, các bạn còn lại học hát. Hỏi có bao nhiêu bạn học hát?";
+                    else
+                        return "Lớp Lan có số bạn học vẽ nhiều hơn số bạn học hát là " + String.valueOf(numberc) +
+                                " bạn, biết sô bạn học vẽ là " + String.valueOf(numbera) + " bạn. Hỏi có bao nhiêu bạn học hát?";
+            }
+        }
+        else if (type == 1){
+            switch (MauCau) {
+                case 0:
+                    if (x == 0)
+                        return "2 anh em có " + String.valueOf(numberc) + " que tính. Người em có "
+                                + String.valueOf(numberb) + " que tính. Hỏi người anh có bao nhiêu que tính?";
+                    else
+                        return "Người anh hơn người em " + String.valueOf(numberc) + " que tính. Người em có "
+                                + String.valueOf(numberb) + " que tính. Hỏi người anh có bao nhiêu que tính?";
+                case 1:
+                    if (x == 0)
+                        return "Lớp 1A có " + String.valueOf(numberc) + " học sinh giỏi. Cả 2 lớp có "
+                                +String.valueOf(numberc) + " học sinh giỏi. Hỏi lớp 1B có bao nhiêu học sinh giỏi?";
+                    else
+                        return "Lan cho Hồng " + String.valueOf(numberb) + " quyễn vở. Lan còn lại "
+                                +String.valueOf(numberc) + " quyễn vở. Hỏi Lan có bao nhiêu quyễn vở?";
+                case 2:
+                    if (x == 0)
+                        return "Lớp 1A và lớp 1B có " + String.valueOf(numberc) + " bạn, biết lớp 1B có" + String.valueOf(numberb)
+                                + " bạn. Lớp 1A có bao nhiêu bạn?";
+                    else
+                        return "Lớp 1A nhiều hơn lớp 1B " + String.valueOf(numberc) +
+                                " bạn, biết lớp 1B có " + String.valueOf(numberb) + " bạn. Hỏi lớp 1A có bao nhiêu bạn?";
+            }
+        }
+        return null;
     }
 
-    public String getA() {
-        return String.valueOf(numbera) + " viên bi,";
-    }
-
-    public String getSecond(){
-        if(x == 0)
-            return "Bạn Toàn thắng";
-        else
-            return "Bạn Toàn thua";
-    }
-
-    public String getB() {
-
-        return String.valueOf(numberb) + " viên bi.";
-    }
-
-    public String getThird(){
-        return "Hỏi bạn Toàn có mấy viên bi?";
-    }
 
     public String getC(){
         return "= " + String.valueOf(numberc);
@@ -118,6 +167,14 @@ public class toando {
 
     public int getb(){
         return numberb;
+    }
+
+    public String getA(){
+        return String.valueOf(numbera);
+    }
+
+    public String getB(){
+        return String.valueOf(numberb);
     }
 
     public void setResultToButton(Button A, Button B,Button C,Button D)

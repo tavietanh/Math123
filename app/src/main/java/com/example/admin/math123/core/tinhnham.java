@@ -69,8 +69,6 @@ public class tinhnham {
             this.numberc = this.numbera - this.numberb;
     }
 
-
-
     public String getA() {
         return String.valueOf(numbera);
     }

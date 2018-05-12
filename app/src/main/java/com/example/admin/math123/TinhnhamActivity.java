@@ -1,17 +1,13 @@
 package com.example.admin.math123;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.content.Intent;
-import java.util.Random;
 
 import com.example.admin.math123.core.tinhnham;
 import com.example.admin.math123.core.CustomDialogResult;
@@ -67,13 +63,16 @@ public class TinhnhamActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(count==10)
                 {
-                    Intent intent = new Intent(TinhnhamActivity.this,PracticeActivity.class);
+                    Intent intent = new Intent(TinhnhamActivity.this,ResultActivity.class);
+                    intent.putExtra("point",String.valueOf(point));
                     startActivity(intent);
                 }
-                else count=count+1;
-                countview.setText(String.valueOf("Câu "+count));
-                activeButton(View.VISIBLE,View.INVISIBLE);
-                randomType(type);
+                else {
+                    count = count + 1;
+                    countview.setText(String.valueOf("Câu " + count));
+                    activeButton(View.VISIBLE, View.INVISIBLE);
+                    randomType(type);
+                }
             }
         });
     }
@@ -86,6 +85,7 @@ public class TinhnhamActivity extends AppCompatActivity {
                     }
                     else
                         setResultWhenFalse();
+                    setResultContent(type);
                     activeButton(View.INVISIBLE,View.VISIBLE);
                     result=4;
                     break;
@@ -95,6 +95,7 @@ public class TinhnhamActivity extends AppCompatActivity {
                     }
                     else
                         setResultWhenFalse();
+                    setResultContent(type);
                     activeButton(View.INVISIBLE,View.VISIBLE);
                     result=4;
                     break;
@@ -104,6 +105,7 @@ public class TinhnhamActivity extends AppCompatActivity {
                     }
                     else
                         setResultWhenFalse();
+                    setResultContent(type);
                     activeButton(View.INVISIBLE,View.VISIBLE);
                     result=4;
                     break;
@@ -113,6 +115,7 @@ public class TinhnhamActivity extends AppCompatActivity {
                     }
                     else
                         setResultWhenFalse();
+                    setResultContent(type);
                     activeButton(View.INVISIBLE,View.VISIBLE);
                     result=4;
                     break;
@@ -124,6 +127,7 @@ public class TinhnhamActivity extends AppCompatActivity {
                         setReultWhenTrue();
                     else
                         setResultWhenFalse();
+                    setResultContent(type);
                     activeButton(View.INVISIBLE,View.VISIBLE);
                     result=4;
                     break;
@@ -133,6 +137,7 @@ public class TinhnhamActivity extends AppCompatActivity {
                     }
                     else
                         setResultWhenFalse();
+                    setResultContent(type);
                     activeButton(View.INVISIBLE,View.VISIBLE);
                     result=4;
                     break;
@@ -252,6 +257,25 @@ public class TinhnhamActivity extends AppCompatActivity {
             btnDapAnD.setVisibility(View.VISIBLE);
             imgViewLeft.setVisibility(View.INVISIBLE);
             imgViewRight.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    public void setResultContent(int x){
+        switch (x) {
+            case 0:
+                numberc.setText(TinhNham.getC());
+                break;
+            case 1:
+                numbera.setText(TinhNham.getA());
+                break;
+            case 2:
+                numberb.setText(TinhNham.getB());
+                break;
+            case 3:
+                sign.setText(TinhNham.getSign());
+                break;
+            case 4:
+                break;
         }
     }
 }
