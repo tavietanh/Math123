@@ -5,4 +5,12 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorBrown">#ffff8800</color>
     <color name="colorWhite">#ffffffff</color>
+    <color name="colorGreen">#33cc33</color>
+    <color name="colorGreenLight">#00ff99</color>
+    <color name="colorBrownDark">#663300</color>
+    <color name="colorBlueLight">#66ccff</color>
+    <color name="colorYellowDark">#999900</color>
+    <color name="colorBlackGreen">#003300</color>
+    <color name="colorRedDark">#800000</color>
+
 </resources>

@@ -1,13 +1,129 @@
 package com.example.admin.math123;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.admin.math123.core.toanhinh;
+import com.example.admin.math123.core.CustomDialogResult;
+
 
 public class ToanhinhActivity extends AppCompatActivity {
+    toanhinh toanhinh = new toanhinh();
+    int result = -1;
+    int count = 1;
+    int point = 0;
+    ImageView imageToanHinh;
+    TextView question;
+    Button btnA;
+    Button btnB;
+    Button btnC;
+    Button btnD;
+    Button btnNext;
+    TextView pointView;
+    TextView countView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_toanhinh);
+        imageToanHinh = (ImageView)findViewById(R.id.imageToanHinh);
+        question=(TextView)findViewById(R.id.txtQuestionToanHinh);
+        btnA=(Button)findViewById(R.id.btnToanHinhA);
+        btnB=(Button)findViewById(R.id.btnToanHinhB);
+        btnC=(Button)findViewById(R.id.btnToanHinhC);
+        btnD=(Button)findViewById(R.id.btnToanHinhD);
+        btnNext=(Button)findViewById(R.id.btnNextToanHinh);
+        pointView=(TextView)findViewById(R.id.pointToanHinh);
+        countView=(TextView)findViewById(R.id.countToanHinh);
+        toanhinh.setBitmap(this.getApplicationContext());
+        toanhinh.addItemToActivity(question,imageToanHinh,btnA,btnB,btnC,btnD,count);
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(count==10)
+                {
+                    Intent intent = new Intent(ToanhinhActivity.this,ResultActivity.class);
+                    intent.putExtra("point",String.valueOf(point));
+                    startActivity(intent);
+                }
+                else {
+                    count = count + 1;
+                    countView.setText(String.valueOf("Câu " + count));
+                    addSource();
+                    activeButton(View.VISIBLE, View.INVISIBLE);
+                }
+            }
+        });
+    }
+    public void onButtonClick(View v){
+        switch (v.getId()){
+            case R.id.btnToanHinhA:
+               if(toanhinh.getResult()==0)
+               {
+                   setReultWhenTrue();
+               }
+               else
+                   setResultWhenFalse();
+                activeButton(View.INVISIBLE,View.VISIBLE);
+                break;
+            case R.id.btnToanHinhB:
+                if(toanhinh.getResult()==1)
+                {
+                    setReultWhenTrue();
+                }
+                else
+                    setResultWhenFalse();
+                activeButton(View.INVISIBLE,View.VISIBLE);
+                break;
+            case R.id.btnToanHinhC:
+                if(toanhinh.getResult()==2)
+                {
+                    setReultWhenTrue();
+                }
+                else
+                    setResultWhenFalse();
+                activeButton(View.INVISIBLE,View.VISIBLE);
+                break;
+            case R.id.btnToanHinhD:
+                if(toanhinh.getResult()==3)
+                {
+                    setReultWhenTrue();
+                }
+                else
+                    setResultWhenFalse();
+                activeButton(View.INVISIBLE,View.VISIBLE);
+                break;
+        }
+    }
+    public void setReultWhenTrue()
+    {
+        point +=10;
+        pointView.setText(String.valueOf(point));
+        CustomDialogResult dialog = new CustomDialogResult(ToanhinhActivity.this,true);
+        dialog.showdialog();
+    }
+    public void setResultWhenFalse()
+    {
+        CustomDialogResult dialog = new CustomDialogResult(ToanhinhActivity.this,false);
+        dialog.showdialog();
+    }
+    public void activeButton(int enable,int visible)
+    {
+        btnA.setVisibility(enable);
+        btnB.setVisibility(enable);
+        btnC.setVisibility(enable);
+        btnD.setVisibility(enable);
+        btnNext.setVisibility(visible);
+    }
+    public void addSource()
+    {
+        toanhinh = new toanhinh();
+        toanhinh.setBitmap(this.getApplicationContext());
+        toanhinh.addItemToActivity(question,imageToanHinh,btnA,btnB,btnC,btnD,count);
     }
 }
