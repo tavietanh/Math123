@@ -9,6 +9,7 @@ public class toando {
     int numberb = (int) (10*Math.random());
     int numberc;
     int numberd;
+    int temp;
 
 
     Random rd=new Random();
@@ -16,6 +17,12 @@ public class toando {
     int type = rd.nextInt((2-0+1)+0);
     int result = rd.nextInt((3-0+1)+0);
     int MauCau = rd.nextInt((2-0+1)+0);
+
+    public void setMauCau(){
+        while(MauCau == temp)
+            MauCau = rd.nextInt((2-0+1)+0);
+        temp = MauCau;
+    }
 
     public int getResult() {
         return result;
@@ -99,7 +106,7 @@ public class toando {
                                 + " bạn học vẽ, các bạn còn lại học hát. Hỏi có bao nhiêu bạn học hát?";
                     else
                         return "Lớp Lan có số bạn học vẽ nhiều hơn số bạn học hát là " + String.valueOf(numberc) +
-                                " bạn, biết sô bạn học vẽ là " + String.valueOf(numbera) + " bạn. Hỏi có bao nhiêu bạn học hát?";
+                                " bạn, biết số bạn học vẽ là " + String.valueOf(numbera) + " bạn. Hỏi có bao nhiêu bạn học hát?";
             }
         }
         else if (type == 1){
@@ -113,8 +120,8 @@ public class toando {
                                 + String.valueOf(numberb) + " que tính. Hỏi người anh có bao nhiêu que tính?";
                 case 1:
                     if (x == 0)
-                        return "Lớp 1A có " + String.valueOf(numberc) + " học sinh giỏi. Cả 2 lớp có "
-                                +String.valueOf(numberc) + " học sinh giỏi. Hỏi lớp 1B có bao nhiêu học sinh giỏi?";
+                        return "Lan và Hồng có " + String.valueOf(numberc) + " quyễn vở. Hồng có "
+                                +String.valueOf(numberb) + " quyễn vở. Hỏi Lan có bao nhiêu quyễn vở?";
                     else
                         return "Lan cho Hồng " + String.valueOf(numberb) + " quyễn vở. Lan còn lại "
                                 +String.valueOf(numberc) + " quyễn vở. Hỏi Lan có bao nhiêu quyễn vở?";
@@ -130,6 +137,120 @@ public class toando {
         return null;
     }
 
+    public String getCachGiai(){
+        if(type == 0)
+            switch (MauCau) {
+                case 0:
+                    if (x == 0)
+                        return "Bạn Toàn có " + String.valueOf(numbera) + " viên bi, nên a = " + String.valueOf(numbera)
+                                + "\nBạn Toàn thắng " + String.valueOf(numberb) + " viên bi, nên b = " + String.valueOf(numberb)
+                                + "\nTa sử dụng phép + vì 'Thắng'. \nKết quả là \n" + String.valueOf(numbera) + " + "
+                                + String.valueOf(numberb) + " = " + String.valueOf(numberc);
+                    else
+                        return "Bạn Toàn có " + String.valueOf(numbera) + " viên bi, nên a = " + String.valueOf(numbera)
+                                + "\nBạn Toàn thua " + String.valueOf(numberb) + " viên bi, nên b = " + String.valueOf(numberb)
+                                + "viên bi. \n a sử dụng phép - vì 'Thua'. \nKết quả là \n" + String.valueOf(numbera) + " - "
+                                + String.valueOf(numberb) + " = " + String.valueOf(numberc);
+                case 1:
+                    if (x == 0)
+                        return "Lan hái được " + String.valueOf(numbera) + " bông hoa, nên a = " + String.valueOf(numbera)
+                                + "\nThanh hái được " +String.valueOf(numberb) + " bông hoa, nên b = " + String.valueOf(numberb)
+                                + "\nVì hỏi 2 bạn có bao nhiêu nên ta dùng phép + \nKết quả là \n" + String.valueOf(numbera) + " + "
+                                + String.valueOf(numberb) + " = " + String.valueOf(numberc);
+                    else
+                        return "Lan hái được " + String.valueOf(numbera) + " bông hoa, nên a = " + String.valueOf(numbera)
+                                + "\nThanh hái được " +String.valueOf(numberb) + " bông hoa, nên b = " + String.valueOf(numberb)
+                                + "\nVì hỏi Lan còn lại bao nhiêu nên dùng phép - \nKết quả là \n" + String.valueOf(numbera) + " - "
+                                + String.valueOf(numberb) + " = " + String.valueOf(numberc);
+                case 2:
+                    if (x == 0)
+                        return "Bạn Nam có " + String.valueOf(numbera) + " quả bóng màu đỏ, nên a = " + String.valueOf(numbera)
+                                + "\nNam có " +String.valueOf(numberb) + " quả bóng xanh, nên b = " +String.valueOf(numberb)
+                                + "\nVì hỏi tổng số bóng nên ta dùng phép + \nKết quả là \n" + String.valueOf(numbera) + " + "
+                                + String.valueOf(numberb) + " = " + String.valueOf(numberc);
+                    else
+                        return "Bạn Nam có " + String.valueOf(numbera) + " quả bóng màu đỏ, nên a = " + String.valueOf(numbera)
+                                + "\nNam có " +String.valueOf(numberb) + " quả bóng xanh, nên b = " +String.valueOf(numberb)
+                                + "\nVì hỏi số bóng đỏ nhiều hơn số bóng xanh bao nhiêu nên ta dùng phép + \nKết quả là \n" + String.valueOf(numbera) + " - "
+                                + String.valueOf(numberb) + " = " + String.valueOf(numberc);
+            }
+        else if (type == 2){
+            switch (MauCau) {
+                case 0:
+                    if (x == 0)
+                        return "Bạn Dũng có " + String.valueOf(numbera) + " nhãn vở, nên a = " + String.valueOf(numbera)
+                                + "\nSau khi được cho, bạn Dũng có " + String.valueOf(numberc) + " nhãn vở, nên c = " + String.valueOf(numberc)
+                                + "\nVì hỏi bạn Dũng được cho bao nhiêu, nên ta tìm b. \nKết qua là\n"
+                                + String.valueOf(numberb) + " = " + String.valueOf(numberc) + " - " + String.valueOf(numbera);
+
+                    else
+                        return "Bạn Dũng có " + String.valueOf(numbera) + " nhãn vở, nên a = " + String.valueOf(numbera)
+                                + "\nSau khi bạn Dũng cho bạn thì còn " + String.valueOf(numberc) + " nhãn vở, nên c = " + String.valueOf(numberc)
+                                + "\nVì hỏi bạn Dũng đã cho bạn bao nhiêu, nên ta tìm b. \nKết qua là\n"
+                                + String.valueOf(numberb) + " = " + String.valueOf(numbera) + " - " + String.valueOf(numberc);
+                case 1:
+                    if (x == 0)
+                        return "Lớp 1A có " + String.valueOf(numbera) + " học sinh giỏi, nên a = " + String.valueOf(numbera)
+                                +"\nCả 2 lớp có " +String.valueOf(numberc) + " học sinh giỏi, nên c = " + String.valueOf(numberc)
+                                +"\nHỏi số sinh giỏi lớp 1B nên ta tìm b. \nKết qua là\n"
+                                + String.valueOf(numberb) + " = " + String.valueOf(numberc) + " - " + String.valueOf(numbera);
+                    else
+                        return "Lớp 1A có " + String.valueOf(numbera) + " học sinh giỏi, nên a = " + String.valueOf(numbera)
+                                +"\nLớp 1A nhiều hơn lớp 1B " +String.valueOf(numberc) + " học sinh giỏi, nên c = " + String.valueOf(numberc)
+                                +"\nHỏi số sinh giỏi lớp 1B nên ta tìm b. \nKết qua là\n"
+                                + String.valueOf(numberb) + " = " + String.valueOf(numbera) + " - " + String.valueOf(numberc);
+                case 2:
+                    if (x == 0)
+                        return "Lớp Lan có " + String.valueOf(numberc) + " bạn học sinh, nên c = " + String.valueOf(numberc)
+                                + "\n Có " + String.valueOf(numbera) + " bạn học vẽ, các bạn còn lại học hát. Nên ta có a = " + String.valueOf(numbera)
+                                + "\nTìm b. \nKết qua là\n"
+                                + String.valueOf(numberb) + " = " + String.valueOf(numberc) + " - " + String.valueOf(numbera);
+                    else
+                        return "Lớp Lan có số bạn học vẽ nhiều hơn số bạn học hát là " + String.valueOf(numberc) + " bạn, nên c = " + String.valueOf(numberc)
+                                + "\nBiết số bạn học vẽ là " + String.valueOf(numbera) + " bạn, nên a = " + String.valueOf(numbera)
+                                + "\nHỏi có bao nhiêu bạn học hát? Ta tìm b \nKết qua là\n"
+                                + String.valueOf(numberb) + " = " + String.valueOf(numbera) + " - " + String.valueOf(numberc);
+            }
+        }
+        else if (type == 1){
+            switch (MauCau) {
+                case 0:
+                    if (x == 0)
+                        return "2 anh em có " + String.valueOf(numberc) + " que tính, nên c = " + String.valueOf(numberc)
+                                + "\nNgười em có " + String.valueOf(numberb) + " que tính, nên b = " + String.valueOf(numberb)
+                                + "\nHỏi người anh có bao nhiêu que tính? Ta tìm a\nKết qua là\n"
+                                + String.valueOf(numbera) + " = " + String.valueOf(numberc) + " - " + String.valueOf(numberb);
+                    else
+                        return "Người anh hơn người em " + String.valueOf(numberc) + " que tính, nên c = " + String.valueOf(numberc)
+                                + "\nNgười em có " + String.valueOf(numberb) + " que tính, nên b = " + String.valueOf(numberb)
+                                + "\nHỏi người anh có bao nhiêu que tính? Ta tìm a\nKết qua là\n"
+                                + String.valueOf(numbera) + " = " + String.valueOf(numberc) + " + " + String.valueOf(numberb);
+                case 1:
+                    if (x == 0)
+                        return "Lan và Hồng có " + String.valueOf(numberc) + " quyễn vở, nên c = " + String.valueOf(numberc)
+                                + "\nHồng có " +String.valueOf(numberb) + " quyễn vở, nên b = " + String.valueOf(numberc)
+                                + "\nHỏi Lan có bao nhiêu quyễn vở? Ta tìm a\nKết qua là\n"
+                                + String.valueOf(numbera) + " = " + String.valueOf(numberc) + " - " + String.valueOf(numberb);
+                    else
+                        return "Lan cho Hồng " + String.valueOf(numberb) + " quyễn vở, nên b = " + String.valueOf(numberb)
+                                + "\nLan còn lại " +String.valueOf(numberc) + " quyễn vở, nên c = " + String.valueOf(numberc)
+                                + "\nHỏi Lan có bao nhiêu quyễn vở? Ta tìm a\nKết qua là\n"
+                                + String.valueOf(numbera) + " = " + String.valueOf(numberc) + " + " + String.valueOf(numberb);
+                case 2:
+                    if (x == 0)
+                        return "Lớp 1A và lớp 1B có " + String.valueOf(numberc) + " bạn, nên c = " + String.valueOf(numberc)
+                                + "\nBiết lớp 1B có " + String.valueOf(numberb) + " bạn, nên b = " + String.valueOf(numberb)
+                                + "\nLớp 1A có bao nhiêu bạn? Ta tìm a\nKết qua là\n"
+                                + String.valueOf(numbera) + " = " + String.valueOf(numberc) + " - " + String.valueOf(numberb);
+                    else
+                        return "Lớp 1A nhiều hơn lớp 1B " + String.valueOf(numberc) + " bạn, nên c = " + String.valueOf(numberc)
+                                + "\nBiết lớp 1B có" + String.valueOf(numberb) + " bạn, nên b = " + String.valueOf(numberb)
+                                + "\nLớp 1A có bao nhiêu bạn? Ta tìm a\nKết qua là\n"
+                                + String.valueOf(numbera) + " = " + String.valueOf(numberc) + " + " + String.valueOf(numberb);
+            }
+        }
+        return null;
+    }
 
     public String getC(){
         return "= " + String.valueOf(numberc);

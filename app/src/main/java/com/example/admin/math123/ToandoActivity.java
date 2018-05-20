@@ -12,6 +12,8 @@ import java.util.Random;
 import com.example.admin.math123.core.toando;
 import com.example.admin.math123.core.CustomDialogResult;
 
+import org.w3c.dom.Text;
+
 public class ToandoActivity extends AppCompatActivity {
 
     toando ToanDo = new toando();
@@ -28,6 +30,7 @@ public class ToandoActivity extends AppCompatActivity {
     TextView KQA;
     TextView KQB;
     TextView KQText;
+    TextView CachGiai;
     Button btnDapAnA;
     Button btnDapAnB;
     Button btnDapAnC;
@@ -60,6 +63,7 @@ public class ToandoActivity extends AppCompatActivity {
         KQA = (TextView)findViewById(R.id.KQA);
         KQB = (TextView)findViewById(R.id.KQB);
         KQText = (TextView)findViewById(R.id.KqText);
+        CachGiai = (TextView)findViewById(R.id.CachGiai);
         imgViewTopLeft = (ImageView)findViewById(R.id.imageLogicTopLeft);
         imgViewTopRight = (ImageView)findViewById(R.id.imageLogicTopRight);
         imgViewButtonLeft = (ImageView)findViewById(R.id.imageLogicButtonLeft);
@@ -95,6 +99,7 @@ public class ToandoActivity extends AppCompatActivity {
                         setResultWhenFalse();
                     setResultContent();
                     activeButton(View.INVISIBLE,View.VISIBLE);
+
                     result=4;
                     break;
                 case R.id.btnDapAnB:
@@ -152,6 +157,9 @@ public class ToandoActivity extends AppCompatActivity {
         btnDapAnC.setVisibility(enable);
         btnDapAnD.setVisibility(enable);
         btnnext.setVisibility(visible);
+        if(HinhAnh != 1)
+            CachGiai.setVisibility(visible);
+
     }
 
     public void addani()
@@ -182,6 +190,7 @@ public class ToandoActivity extends AppCompatActivity {
         ToanDo.setB();
         ToanDo.setC();
         ToanDo.setD();
+        ToanDo.setMauCau();
         result= ToanDo.getResult();
         Type= ToanDo.getType();
         type = Type;
@@ -199,6 +208,7 @@ public class ToandoActivity extends AppCompatActivity {
         KQB.setText(ToanDo.getD());
         SignA.setText(ToanDo.getASign());
         SignB.setText(ToanDo.getBSign());
+        CachGiai.setText(ToanDo.getCachGiai());
 
         ToanDo.setResultToButton(btnDapAnA,btnDapAnB,btnDapAnC,btnDapAnD);
         switch (type){
