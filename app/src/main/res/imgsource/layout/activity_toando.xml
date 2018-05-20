@@ -8,6 +8,21 @@
     tools:context=".ToandoActivity"
     tools:ignore="ExtraText">
 
+
+    <TextView
+        android:id="@+id/CachGiai"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/backgroundbaitaplogic"
+        android:paddingTop="270dp"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text = "@string/LogicHoiKQ"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        tools:ignore="MissingConstraints"/>
+
     <TextView
         android:id="@+id/Content"
         android:layout_width="281dp"
@@ -118,24 +133,6 @@
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/btnNext"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/btn_next"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -305,4 +302,24 @@
         app:layout_constraintStart_toEndOf="@+id/imageKetQua"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_next"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints" />
+
 </android.support.constraint.ConstraintLayout>
