@@ -122,26 +122,37 @@
 
     <TextView
         android:id="@+id/countlogic"
-        android:layout_width="98dp"
-        android:layout_height="49dp"
-        android:layout_marginEnd="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:autoText="false"
         android:background="@drawable/cau"
-        android:paddingLeft="8dp"
-        android:paddingTop="7dp"
-        android:text="@string/Cau"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
+        android:text="Câu 1"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.996"
+        app:layout_constraintStart_toEndOf="@+id/pointLonbe"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.015" />
 
     <TextView
         android:id="@+id/pointlogic"
         android:layout_width="126dp"
         android:layout_height="41dp"
         android:layout_marginBottom="7dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
+        android:autoText="false"
         android:background="@drawable/diem"
         android:freezesText="false"
         android:text=" 0"
@@ -149,12 +160,12 @@
         android:textDirection="firstStrongLtr"
         android:textIsSelectable="false"
         android:textSize="25sp"
-        android:paddingLeft="5sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/countTapdem"
+        app:layout_constraintEnd_toStartOf="@+id/countlogic"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.015" />
+        app:layout_constraintVertical_bias="0.021" />
 
     <ImageView
         android:id="@+id/imageLogicTopLeft"
@@ -306,8 +317,8 @@
 
     <Button
         android:id="@+id/btnNext"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
+        android:layout_width="166dp"
+        android:layout_height="83dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="8dp"
@@ -316,10 +327,10 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.784"
         tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>
