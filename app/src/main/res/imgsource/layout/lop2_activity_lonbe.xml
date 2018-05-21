@@ -191,7 +191,6 @@
         android:textDirection="firstStrongLtr"
         android:textIsSelectable="false"
         android:textSize="25sp"
-        app:autoSizeTextType="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/countLonbe"
         app:layout_constraintStart_toStartOf="parent"

@@ -51,7 +51,7 @@
         app:layout_constraintVertical_bias="0.377" />
 
     <Button
-        android:id="@+id/btn_Tapdem"
+        android:id="@+id/btn_ToanHinh"
         android:layout_width="125dp"
         android:layout_height="113dp"
         android:layout_marginBottom="8dp"
@@ -60,7 +60,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/lop2_button_train"
         android:paddingBottom="30dp"
-        android:text="@string/btn_Tapdem"
+        android:text="@string/btn_ToanHinh"
         android:textColor="#FFD185"
         android:textSize="20dp"
         android:textStyle="bold"
