@@ -20,6 +20,7 @@ public class ToandoActivity extends AppCompatActivity {
     int result = 1;
     int count = 1;
     int point = 0;
+    boolean istest = false;
     int signb = 0;
     int SoA,SoB;
     TextView ContentText;
@@ -49,6 +50,10 @@ public class ToandoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_toando);
+        Intent intenttest = getIntent();
+        count = intenttest.getIntExtra("count",1);
+        point = intenttest.getIntExtra("point",0);
+        istest=intenttest.getBooleanExtra("istest",false);
         ContentText = (TextView)findViewById(R.id.Content);
         btnDapAnA = (Button)findViewById(R.id.btnDapAnA);
         btnDapAnB = (Button)findViewById(R.id.btnDapAnB);
@@ -80,6 +85,14 @@ public class ToandoActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else {
+                    if(count==8&&istest)
+                    {
+                        Intent intent = new Intent(ToandoActivity.this, testActivity.class);
+                        intent.putExtra("point", point);
+                        intent.putExtra("count", count + 1);
+                        intent.putExtra("istest", istest);
+                        startActivity(intent);
+                    }
                     count = count + 1;
                     countview.setText(String.valueOf("Câu " + count));
                     activeButton(View.VISIBLE, View.INVISIBLE);

@@ -17,6 +17,7 @@ public class LonbeActivity extends AppCompatActivity {
     int result = 3;
     int count = 1;
     int point = 0;
+    boolean istest= false;
     TextView signview;
     TextView numbera;
     TextView numberb;
@@ -34,6 +35,10 @@ public class LonbeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lonbe);
+        Intent intenttest = getIntent();
+        count = intenttest.getIntExtra("count",1);
+        point = intenttest.getIntExtra("point",0);
+        istest=intenttest.getBooleanExtra("istest",false);
         signview = (TextView)findViewById(R.id.SignView);
         numbera = (TextView)findViewById(R.id.numbera);
         numberb = (TextView)findViewById(R.id.numberb);
@@ -47,6 +52,7 @@ public class LonbeActivity extends AppCompatActivity {
         imgViewRight = (ImageView)findViewById(R.id.imageLonbeRight);
         pointView = (TextView)findViewById(R.id.pointLonbe);
         countview.setText(String.valueOf("Câu "+count));
+        pointView.setText(String.valueOf(point));
         randomType(type);
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +64,14 @@ public class LonbeActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else {
+                    if(count==4&&istest)
+                    {
+                        Intent intent = new Intent(LonbeActivity.this, TinhnhamActivity.class);
+                        intent.putExtra("point", point);
+                        intent.putExtra("count", count + 1);
+                        intent.putExtra("istest", istest);
+                        startActivity(intent);
+                    }
                     count = count + 1;
                     countview.setText(String.valueOf("Câu " + count));
                     activeButton(View.VISIBLE, View.INVISIBLE);

@@ -18,6 +18,7 @@ public class TinhnhamActivity extends AppCompatActivity {
     int result = 1;
     int count = 1;
     int point = 0;
+    boolean istest = false;
     TextView sign;
     TextView sign2;
     TextView numbera;
@@ -41,6 +42,10 @@ public class TinhnhamActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tinhnham);
+        Intent intenttest = getIntent();
+        count = intenttest.getIntExtra("count",1);
+        point = intenttest.getIntExtra("point",0);
+        istest=intenttest.getBooleanExtra("istest",false);
         sign = (TextView)findViewById(R.id.Sign);
         sign2 = (TextView)findViewById(R.id.Sign2);
         signequal = (TextView)findViewById(R.id.signequal);
@@ -68,6 +73,14 @@ public class TinhnhamActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else {
+                    if(count==6&&istest)
+                    {
+                        Intent intent = new Intent(TinhnhamActivity.this, ToandoActivity.class);
+                        intent.putExtra("point", point);
+                        intent.putExtra("count", count + 1);
+                        intent.putExtra("istest", istest);
+                        startActivity(intent);
+                    }
                     count = count + 1;
                     countview.setText(String.valueOf("Câu " + count));
                     activeButton(View.VISIBLE, View.INVISIBLE);

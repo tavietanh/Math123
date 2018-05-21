@@ -16,6 +16,7 @@ public class TapdemActivity extends AppCompatActivity {
     int result = -1;
     int count = 1;
     int point = 0;
+    boolean istest = false;
     Button A;
     Button B;
     Button C;
@@ -28,6 +29,8 @@ public class TapdemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tapdem);
+        Intent intenttest = this.getIntent();
+        istest = intenttest.getBooleanExtra("istest",false);
         A = (Button)findViewById(R.id.btnTapdemA);
         B = (Button)findViewById(R.id.btnTapdemB);
         C = (Button)findViewById(R.id.btnTapdemC);
@@ -40,19 +43,25 @@ public class TapdemActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(count==10)
-                {
-                    Intent intent = new Intent(TapdemActivity.this,ResultActivity.class);
-                    intent.putExtra("point",String.valueOf(point));
-                    startActivity(intent);
+                    if (count == 10) {
+                        Intent intent = new Intent(TapdemActivity.this, ResultActivity.class);
+                        intent.putExtra("point", String.valueOf(point));
+                        startActivity(intent);
+                    } else {
+                        if(count==1&&istest)
+                        {
+                            Intent intent = new Intent(TapdemActivity.this, ToanhinhActivity.class);
+                            intent.putExtra("point", point);
+                            intent.putExtra("count", count + 1);
+                            intent.putExtra("istest", istest);
+                            startActivity(intent);
+                        }
+                        count = count + 1;
+                        countview.setText(String.valueOf("Câu " + count));
+                        activeButton(View.VISIBLE, View.INVISIBLE);
+                        setData();
+                    }
                 }
-                else {
-                    count = count + 1;
-                    countview.setText(String.valueOf("Câu " + count));
-                    activeButton(View.VISIBLE, View.INVISIBLE);
-                    setData();
-                }
-            }
         });
     }
     public void onButtonClick(View v){
