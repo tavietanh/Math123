@@ -37,7 +37,7 @@ public class toando {
 
     public void setB() {
         this.numberb = rd.nextInt((9-1+1)+1);
-        while ((x == 1) && (this.numberb > this.numbera)) {
+        while ((x == 1) && (this.numberb > this.numbera) && (this.numberb == 0)) {
             this.numberb = rd.nextInt((9-1+1)+1);
         }
     }
@@ -244,7 +244,7 @@ public class toando {
                                 + String.valueOf(numbera) + " = " + String.valueOf(numberc) + " - " + String.valueOf(numberb);
                     else
                         return "Lớp 1A nhiều hơn lớp 1B " + String.valueOf(numberc) + " bạn, nên c = " + String.valueOf(numberc)
-                                + "\nBiết lớp 1B có" + String.valueOf(numberb) + " bạn, nên b = " + String.valueOf(numberb)
+                                + "\nBiết lớp 1B có " + String.valueOf(numberb) + " bạn, nên b = " + String.valueOf(numberb)
                                 + "\nLớp 1A có bao nhiêu bạn? Ta tìm a\nKết qua là\n"
                                 + String.valueOf(numbera) + " = " + String.valueOf(numberc) + " + " + String.valueOf(numberb);
             }
