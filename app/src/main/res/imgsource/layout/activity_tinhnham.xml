@@ -79,8 +79,8 @@
 
     <Button
         android:id="@+id/btnDapAnA"
-        android:layout_width="80dp"
-        android:layout_height="60dp"
+        android:layout_width="70dp"
+        android:layout_height="53dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
@@ -95,12 +95,13 @@
         app:layout_constraintEnd_toStartOf="@+id/btnDapAnB"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numbera" />
+        app:layout_constraintTop_toBottomOf="@+id/numbera"
+        app:layout_constraintVertical_bias="0.551" />
 
     <Button
         android:id="@+id/btnDapAnB"
-        android:layout_width="74dp"
-        android:layout_height="63dp"
+        android:layout_width="70dp"
+        android:layout_height="53dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="31dp"
@@ -114,12 +115,12 @@
         app:layout_constraintEnd_toStartOf="@+id/btnDapAnC"
         app:layout_constraintStart_toEndOf="@+id/btnDapAnA"
         app:layout_constraintTop_toBottomOf="@+id/Sign"
-        app:layout_constraintVertical_bias="0.505" />
+        app:layout_constraintVertical_bias="0.551" />
 
     <Button
         android:id="@+id/btnDapAnC"
-        android:layout_width="74dp"
-        android:layout_height="63dp"
+        android:layout_width="70dp"
+        android:layout_height="53dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="12dp"
         android:layout_marginStart="16dp"
@@ -132,12 +133,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnDapAnD"
         app:layout_constraintStart_toEndOf="@+id/btnDapAnB"
-        app:layout_constraintTop_toBottomOf="@+id/numberb" />
+        app:layout_constraintTop_toBottomOf="@+id/numberb"
+        app:layout_constraintVertical_bias="0.551" />
 
     <Button
         android:id="@+id/btnDapAnD"
-        android:layout_width="77dp"
-        android:layout_height="61dp"
+        android:layout_width="70dp"
+        android:layout_height="53dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="4dp"
         android:layout_marginStart="12dp"
@@ -152,7 +154,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnDapAnC"
         app:layout_constraintTop_toBottomOf="@+id/numberc"
-        app:layout_constraintVertical_bias="0.501" />
+        app:layout_constraintVertical_bias="0.551" />
 
     <TextView
         android:id="@+id/countTinhnham"
@@ -190,7 +192,7 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintHorizontal_bias="0.582"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.784"

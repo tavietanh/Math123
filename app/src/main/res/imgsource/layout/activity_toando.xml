@@ -14,14 +14,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/backgroundbaitaplogic"
-        android:paddingTop="270dp"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
-        android:text = "@string/LogicHoiKQ"
+        android:paddingTop="270dp"
+        android:text="@string/LogicHoiKQ"
         android:textSize="20sp"
         android:textStyle="bold"
         android:visibility="invisible"
-        tools:ignore="MissingConstraints"/>
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <TextView
         android:id="@+id/Content"
@@ -44,9 +46,8 @@
 
     <Button
         android:id="@+id/btnDapAnA"
-        android:layout_width="80dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="144dp"
+        android:layout_width="70dp"
+        android:layout_height="53dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
@@ -61,13 +62,12 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Content"
-        app:layout_constraintVertical_bias="0.968" />
+        app:layout_constraintVertical_bias="0.451" />
 
     <Button
         android:id="@+id/btnDapAnB"
-        android:layout_width="74dp"
-        android:layout_height="63dp"
-        android:layout_marginBottom="144dp"
+        android:layout_width="70dp"
+        android:layout_height="53dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="31dp"
         android:layout_marginTop="8dp"
@@ -80,13 +80,12 @@
         app:layout_constraintEnd_toStartOf="@+id/btnDapAnC"
         app:layout_constraintStart_toEndOf="@+id/btnDapAnA"
         app:layout_constraintTop_toBottomOf="@+id/Content"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.451" />
 
     <Button
         android:id="@+id/btnDapAnC"
-        android:layout_width="74dp"
-        android:layout_height="63dp"
-        android:layout_marginBottom="144dp"
+        android:layout_width="70dp"
+        android:layout_height="53"
         android:layout_marginEnd="12dp"
         android:layout_marginStart="16dp"
         android:background="@drawable/button_dapan"
@@ -98,13 +97,12 @@
         app:layout_constraintEnd_toStartOf="@+id/btnDapAnD"
         app:layout_constraintStart_toEndOf="@+id/btnDapAnB"
         app:layout_constraintTop_toBottomOf="@+id/Content"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.468" />
 
     <Button
         android:id="@+id/btnDapAnD"
-        android:layout_width="74dp"
-        android:layout_height="63dp"
-        android:layout_marginBottom="144dp"
+        android:layout_width="70dp"
+        android:layout_height="53dp"
         android:layout_marginEnd="12dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
@@ -118,7 +116,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnDapAnC"
         app:layout_constraintTop_toBottomOf="@+id/Content"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.451" />
 
     <TextView
         android:id="@+id/countlogic"
@@ -288,12 +286,12 @@
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginBottom="268dp"
-        android:layout_marginStart="160dp"
+        android:layout_marginStart="164dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.841" />
+        app:layout_constraintVertical_bias="0.847" />
 
     <TextView
         android:id="@+id/KqText"
@@ -327,10 +325,10 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintHorizontal_bias="0.556"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.784"
+        app:layout_constraintVertical_bias="0.776"
         tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>
