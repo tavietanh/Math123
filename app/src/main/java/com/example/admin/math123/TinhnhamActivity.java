@@ -61,7 +61,7 @@ public class TinhnhamActivity extends AppCompatActivity {
         imgViewRight = (ImageView)findViewById(R.id.imageTinhNhamRight);
         pointView = (TextView)findViewById(R.id.pointTinhNham);
         countview = (TextView)findViewById(R.id.countTinhnham);
-        countview.setText(String.valueOf(count));
+        countview.setText(String.valueOf("Câu " + count));
         randomType(type);
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override

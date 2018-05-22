@@ -62,7 +62,7 @@ public class ToandoActivity extends AppCompatActivity {
         btnnext = (Button)findViewById(R.id.btnNext);
         pointView = (TextView)findViewById(R.id.pointlogic);
         countview = (TextView)findViewById(R.id.countlogic);
-        countview.setText(String.valueOf(count));
+        countview.setText(String.valueOf("Câu " + count));
         SignA = (TextView)findViewById(R.id.SignA);
         SignB = (TextView)findViewById(R.id.SignB);
         KQA = (TextView)findViewById(R.id.KQA);

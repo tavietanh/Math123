@@ -251,6 +251,8 @@
         android:textDirection="firstStrongLtr"
         android:textIsSelectable="false"
         android:textSize="25sp"
+        android:paddingLeft="5dp"
+        android:paddingTop="2dp"
         app:autoSizeTextType="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/countlogic"

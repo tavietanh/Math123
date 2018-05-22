@@ -37,7 +37,7 @@ public class toando {
 
     public void setB() {
         this.numberb = rd.nextInt((9-1+1)+1);
-        while ((x == 1) && (this.numberb > this.numbera) && (this.numberb == 0)) {
+        while (((x == 1) && (this.numberb > this.numbera)) || (this.numberb == 0)) {
             this.numberb = rd.nextInt((9-1+1)+1);
         }
     }
@@ -142,73 +142,70 @@ public class toando {
             switch (MauCau) {
                 case 0:
                     if (x == 0)
-                        return "Bạn Toàn có " + String.valueOf(numbera) + " viên bi, nên a = " + String.valueOf(numbera)
-                                + "\nBạn Toàn thắng " + String.valueOf(numberb) + " viên bi, nên b = " + String.valueOf(numberb)
-                                + "\nTa sử dụng phép + vì 'Thắng'. \nKết quả là \n" + String.valueOf(numbera) + " + "
-                                + String.valueOf(numberb) + " = " + String.valueOf(numberc);
+                        return "Bạn Toàn có " + String.valueOf(numbera) + " viên bi và" + "bạn Toàn thắng " + String.valueOf(numberb) + " viên bi."
+                                + "Vì bạn Toàn 'Thắng' nên đây là bài toán tổng 2 số với kết quả là \n"
+                                + String.valueOf(numberc) + " = " + String.valueOf(numbera) + " + " + String.valueOf(numberb);
                     else
-                        return "Bạn Toàn có " + String.valueOf(numbera) + " viên bi, nên a = " + String.valueOf(numbera)
-                                + "\nBạn Toàn thua " + String.valueOf(numberb) + " viên bi, nên b = " + String.valueOf(numberb)
-                                + "viên bi. \n a sử dụng phép - vì 'Thua'. \nKết quả là \n" + String.valueOf(numbera) + " - "
-                                + String.valueOf(numberb) + " = " + String.valueOf(numberc);
+                        return "Bạn Toàn có " + String.valueOf(numbera) + " viên bi và" + "bạn Toàn thua " + String.valueOf(numberb) + " viên bi."
+                                + "Vì bạn Toàn 'Thua' nên đây là bài toán hiệu 2 số với số trừ là " + String.valueOf(numbera) + ", số bị trừ là " + String.valueOf(numberb)
+                                + "\nKết quả là \n"
+                                + String.valueOf(numberc) + " = " + String.valueOf(numbera) + " - " + String.valueOf(numberb);
                 case 1:
                     if (x == 0)
-                        return "Lan hái được " + String.valueOf(numbera) + " bông hoa, nên a = " + String.valueOf(numbera)
-                                + "\nThanh hái được " +String.valueOf(numberb) + " bông hoa, nên b = " + String.valueOf(numberb)
-                                + "\nVì hỏi 2 bạn có bao nhiêu nên ta dùng phép + \nKết quả là \n" + String.valueOf(numbera) + " + "
-                                + String.valueOf(numberb) + " = " + String.valueOf(numberc);
+                        return "Lan hái được " + String.valueOf(numbera) + " bông hoa, và Thanh hái được " +String.valueOf(numberb) + " bông hoa"
+                                + "\nVì hỏi 2 bạn có bao nhiêu bông hoa nên đây là bài toán tổng 2 số với kết quả là \n"
+                                + String.valueOf(numberc) + " = " + String.valueOf(numbera) + " + " + String.valueOf(numberb);
                     else
-                        return "Lan hái được " + String.valueOf(numbera) + " bông hoa, nên a = " + String.valueOf(numbera)
-                                + "\nThanh hái được " +String.valueOf(numberb) + " bông hoa, nên b = " + String.valueOf(numberb)
-                                + "\nVì hỏi Lan còn lại bao nhiêu nên dùng phép - \nKết quả là \n" + String.valueOf(numbera) + " - "
-                                + String.valueOf(numberb) + " = " + String.valueOf(numberc);
+                        return "Lan hái được " + String.valueOf(numbera) + " bông hoa, và Lan cho Thanh " +String.valueOf(numberb) + " bông hoa"
+                                + "\nVì hỏi 2 Lan còn bao nhiêu bông hoa nên đây là bài toán hiệu 2 số với số trừ là " + String.valueOf(numbera) + ", số bị trừ là " + String.valueOf(numberb)
+                                + "\nKết quả là \n"
+                                + String.valueOf(numberc) + " = " + String.valueOf(numbera) + " - " + String.valueOf(numberb);
                 case 2:
                     if (x == 0)
-                        return "Bạn Nam có " + String.valueOf(numbera) + " quả bóng màu đỏ, nên a = " + String.valueOf(numbera)
-                                + "\nNam có " +String.valueOf(numberb) + " quả bóng xanh, nên b = " +String.valueOf(numberb)
-                                + "\nVì hỏi tổng số bóng nên ta dùng phép + \nKết quả là \n" + String.valueOf(numbera) + " + "
-                                + String.valueOf(numberb) + " = " + String.valueOf(numberc);
+                        return "Bạn Nam có " + String.valueOf(numbera) + " quả bóng màu đỏ và " + String.valueOf(numberb) + " quả bóng xanh"
+                                + "\nVì hỏi tổng số bóng nên đây là bài toán tổng 2 số với kết quả là \n"
+                                + String.valueOf(numberc) + " = " + String.valueOf(numbera) + " + " + String.valueOf(numberb);
                     else
-                        return "Bạn Nam có " + String.valueOf(numbera) + " quả bóng màu đỏ, nên a = " + String.valueOf(numbera)
-                                + "\nNam có " +String.valueOf(numberb) + " quả bóng xanh, nên b = " +String.valueOf(numberb)
-                                + "\nVì hỏi số bóng đỏ nhiều hơn số bóng xanh bao nhiêu nên ta dùng phép + \nKết quả là \n" + String.valueOf(numbera) + " - "
-                                + String.valueOf(numberb) + " = " + String.valueOf(numberc);
+                        return "Bạn Nam có " + String.valueOf(numbera) + " quả bóng màu đỏ và " + String.valueOf(numberb) + " quả bóng xanh"
+                                + "\nVì hỏi số bóng đỏ nhiều hơn số bóng xanh bao nhiêu nên đây là bài toán hiệu 2 số với số trừ là " + String.valueOf(numbera) + ", số bị trừ là " + String.valueOf(numberb)
+                                + "\nKết quả là \n"
+                                + String.valueOf(numberc) + " = " + String.valueOf(numbera) + " - " + String.valueOf(numberb);
             }
         else if (type == 2){
             switch (MauCau) {
                 case 0:
                     if (x == 0)
-                        return "Bạn Dũng có " + String.valueOf(numbera) + " nhãn vở, nên a = " + String.valueOf(numbera)
-                                + "\nSau khi được cho, bạn Dũng có " + String.valueOf(numberc) + " nhãn vở, nên c = " + String.valueOf(numberc)
-                                + "\nVì hỏi bạn Dũng được cho bao nhiêu, nên ta tìm b. \nKết qua là\n"
+                        return "Bạn Dũng có " + String.valueOf(numbera) + " nhãn vở và sau khi được cho, bạn Dũng có " + String.valueOf(numberc) + " nhãn vở"
+                                + "\nVì hỏi bạn Dũng được cho bao nhiêu? Đây là bài toán tổng 2 số nên ta tìm theo cách sau:\n"
+                                + String.valueOf(numberc) + " = " + String.valueOf(numbera) + " + ?\n"
                                 + String.valueOf(numberb) + " = " + String.valueOf(numberc) + " - " + String.valueOf(numbera);
 
                     else
-                        return "Bạn Dũng có " + String.valueOf(numbera) + " nhãn vở, nên a = " + String.valueOf(numbera)
-                                + "\nSau khi bạn Dũng cho bạn thì còn " + String.valueOf(numberc) + " nhãn vở, nên c = " + String.valueOf(numberc)
-                                + "\nVì hỏi bạn Dũng đã cho bạn bao nhiêu, nên ta tìm b. \nKết qua là\n"
+                        return "Bạn Dũng có " + String.valueOf(numbera) + " nhãn vở và sau khi bạn Dũng cho bạn thì còn " + String.valueOf(numberc) + " nhãn vở"
+                                + "\nVì hỏi bạn Dũng đã cho bạn bao nhiêu? Đây là bài toán hiệu 2 số nên ta tìm theo cách sau:\n"
+                                + String.valueOf(numberc) + " = " + String.valueOf(numbera) + " - ?\n"
                                 + String.valueOf(numberb) + " = " + String.valueOf(numbera) + " - " + String.valueOf(numberc);
                 case 1:
                     if (x == 0)
-                        return "Lớp 1A có " + String.valueOf(numbera) + " học sinh giỏi, nên a = " + String.valueOf(numbera)
-                                +"\nCả 2 lớp có " +String.valueOf(numberc) + " học sinh giỏi, nên c = " + String.valueOf(numberc)
-                                +"\nHỏi số sinh giỏi lớp 1B nên ta tìm b. \nKết qua là\n"
+                        return "Lớp 1A có " + String.valueOf(numbera) + " học sinh giỏi và cả 2 lớp có " +String.valueOf(numberc) + " học sinh giỏi"
+                                +"\nHỏi số sinh giỏi lớp 1B? Đây là bài toán tổng 2 số nên ta tìm theo cách sau:\n"
+                                + String.valueOf(numberc) + " = " + String.valueOf(numbera) + " + ?\n"
                                 + String.valueOf(numberb) + " = " + String.valueOf(numberc) + " - " + String.valueOf(numbera);
                     else
-                        return "Lớp 1A có " + String.valueOf(numbera) + " học sinh giỏi, nên a = " + String.valueOf(numbera)
-                                +"\nLớp 1A nhiều hơn lớp 1B " +String.valueOf(numberc) + " học sinh giỏi, nên c = " + String.valueOf(numberc)
-                                +"\nHỏi số sinh giỏi lớp 1B nên ta tìm b. \nKết qua là\n"
+                        return "Lớp 1A có " + String.valueOf(numbera) + " học sinh giỏi và lớp 1A nhiều hơn lớp 1B " +String.valueOf(numberc) + " học sinh giỏi"
+                                +"\nHỏi số sinh giỏi lớp 1B? Đây là bài toán hiệu 2 số nên ta tìm theo cách sau:\n"
+                                + String.valueOf(numberc) + " = " + String.valueOf(numbera) + " - ?\n"
                                 + String.valueOf(numberb) + " = " + String.valueOf(numbera) + " - " + String.valueOf(numberc);
                 case 2:
                     if (x == 0)
-                        return "Lớp Lan có " + String.valueOf(numberc) + " bạn học sinh, nên c = " + String.valueOf(numberc)
-                                + "\n Có " + String.valueOf(numbera) + " bạn học vẽ, các bạn còn lại học hát. Nên ta có a = " + String.valueOf(numbera)
-                                + "\nTìm b. \nKết qua là\n"
+                        return "Lớp Lan có " + String.valueOf(numberc) + " bạn học sinh, có " + String.valueOf(numbera) + " bạn học vẽ và các bạn còn lại học hát"
+                                +"\nHỏi lớp Lan có bao nhiêu bạn học hát? Đây là bài toán tổng 2 số nên ta tìm theo cách sau\n"
+                                + String.valueOf(numberc) + " = " + String.valueOf(numbera) + " + ?\n"
                                 + String.valueOf(numberb) + " = " + String.valueOf(numberc) + " - " + String.valueOf(numbera);
                     else
-                        return "Lớp Lan có số bạn học vẽ nhiều hơn số bạn học hát là " + String.valueOf(numberc) + " bạn, nên c = " + String.valueOf(numberc)
-                                + "\nBiết số bạn học vẽ là " + String.valueOf(numbera) + " bạn, nên a = " + String.valueOf(numbera)
-                                + "\nHỏi có bao nhiêu bạn học hát? Ta tìm b \nKết qua là\n"
+                        return "Lớp Lan có số bạn học vẽ nhiều hơn số bạn học hát là " + String.valueOf(numberc) + " bạn và biết số bạn học vẽ là " + String.valueOf(numbera) + " bạn"
+                                + "\nHỏi có bao nhiêu bạn học hát? ? Đây là bài toán hiệu 2 số nên ta tìm theo cách sau\n"
+                                + String.valueOf(numberc) + " = " + String.valueOf(numbera) + " - ?\n"
                                 + String.valueOf(numberb) + " = " + String.valueOf(numbera) + " - " + String.valueOf(numberc);
             }
         }
@@ -216,36 +213,36 @@ public class toando {
             switch (MauCau) {
                 case 0:
                     if (x == 0)
-                        return "2 anh em có " + String.valueOf(numberc) + " que tính, nên c = " + String.valueOf(numberc)
-                                + "\nNgười em có " + String.valueOf(numberb) + " que tính, nên b = " + String.valueOf(numberb)
-                                + "\nHỏi người anh có bao nhiêu que tính? Ta tìm a\nKết qua là\n"
+                        return "2 anh em có " + String.valueOf(numberc) + " que tính và người em có " + String.valueOf(numberb) + " que tính"
+                                + "\nHỏi người anh có bao nhiêu que tính? Đây là bài toán tổng 2 số nên ta tìm theo cách sau:\n"
+                                + String.valueOf(numberc) + " = " + "? + " + String.valueOf(numberb) + "\n"
                                 + String.valueOf(numbera) + " = " + String.valueOf(numberc) + " - " + String.valueOf(numberb);
                     else
-                        return "Người anh hơn người em " + String.valueOf(numberc) + " que tính, nên c = " + String.valueOf(numberc)
-                                + "\nNgười em có " + String.valueOf(numberb) + " que tính, nên b = " + String.valueOf(numberb)
-                                + "\nHỏi người anh có bao nhiêu que tính? Ta tìm a\nKết qua là\n"
+                        return "Người anh hơn người em " + String.valueOf(numberc) + " que tính và người em có " + String.valueOf(numberb) + " que tính"
+                                + "\nHỏi người anh có bao nhiêu que tính? Đây là bài toán hiệu 2 số nên ta tìm theo cách sau:\n"
+                                + String.valueOf(numberc) + " = " + "? - " + String.valueOf(numberb) + "\n"
                                 + String.valueOf(numbera) + " = " + String.valueOf(numberc) + " + " + String.valueOf(numberb);
                 case 1:
                     if (x == 0)
-                        return "Lan và Hồng có " + String.valueOf(numberc) + " quyễn vở, nên c = " + String.valueOf(numberc)
-                                + "\nHồng có " +String.valueOf(numberb) + " quyễn vở, nên b = " + String.valueOf(numberc)
-                                + "\nHỏi Lan có bao nhiêu quyễn vở? Ta tìm a\nKết qua là\n"
+                        return "Lan và Hồng có " + String.valueOf(numberc) + " quyễn vở và Hồng có " +String.valueOf(numberb) + " quyễn vở"
+                                + "\nHỏi Lan có bao nhiêu quyễn vở? Đây là bài toán tổng 2 số nên ta tìm theo cách sau:\n"
+                                + String.valueOf(numberc) + " = " + "? + " + String.valueOf(numberb) + "\n"
                                 + String.valueOf(numbera) + " = " + String.valueOf(numberc) + " - " + String.valueOf(numberb);
                     else
-                        return "Lan cho Hồng " + String.valueOf(numberb) + " quyễn vở, nên b = " + String.valueOf(numberb)
-                                + "\nLan còn lại " +String.valueOf(numberc) + " quyễn vở, nên c = " + String.valueOf(numberc)
-                                + "\nHỏi Lan có bao nhiêu quyễn vở? Ta tìm a\nKết qua là\n"
+                        return "Lan cho Hồng " + String.valueOf(numberb) + " quyễn vở và Lan còn lại " +String.valueOf(numberc) + " quyễn vở"
+                                + "\nHỏi Lan có bao nhiêu quyễn vở? Đây là bài toán hiệu 2 số nên ta tìm theo cách sau:\n"
+                                + String.valueOf(numberc) + " = " + "? - " + String.valueOf(numberb) + "\n"
                                 + String.valueOf(numbera) + " = " + String.valueOf(numberc) + " + " + String.valueOf(numberb);
                 case 2:
                     if (x == 0)
-                        return "Lớp 1A và lớp 1B có " + String.valueOf(numberc) + " bạn, nên c = " + String.valueOf(numberc)
-                                + "\nBiết lớp 1B có " + String.valueOf(numberb) + " bạn, nên b = " + String.valueOf(numberb)
-                                + "\nLớp 1A có bao nhiêu bạn? Ta tìm a\nKết qua là\n"
+                        return "Lớp 1A và lớp 1B có " + String.valueOf(numberc) + " bạn và biết lớp 1B có " + String.valueOf(numberb) + " bạn"
+                                + "\nLớp 1A có bao nhiêu bạn? Đây là bài toán tổng 2 số nên ta tìm theo cách sau:\n"
+                                + String.valueOf(numberc) + " = " + "? + " + String.valueOf(numberb) + "\n"
                                 + String.valueOf(numbera) + " = " + String.valueOf(numberc) + " - " + String.valueOf(numberb);
                     else
-                        return "Lớp 1A nhiều hơn lớp 1B " + String.valueOf(numberc) + " bạn, nên c = " + String.valueOf(numberc)
-                                + "\nBiết lớp 1B có " + String.valueOf(numberb) + " bạn, nên b = " + String.valueOf(numberb)
-                                + "\nLớp 1A có bao nhiêu bạn? Ta tìm a\nKết qua là\n"
+                        return "Lớp 1A nhiều hơn lớp 1B " + String.valueOf(numberc) + " bạn và biết lớp 1B có " + String.valueOf(numberb) + " bạn"
+                                + "\nLớp 1A có bao nhiêu bạn? Đây là bài toán hiệu 2 số nên ta tìm theo cách sau:\n"
+                                + String.valueOf(numberc) + " = " + "? - " + String.valueOf(numberb) + "\n"
                                 + String.valueOf(numbera) + " = " + String.valueOf(numberc) + " + " + String.valueOf(numberb);
             }
         }
