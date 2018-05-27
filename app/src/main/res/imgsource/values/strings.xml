@@ -27,4 +27,7 @@
     <string name="Logic_KQA">= 1</string>
     <string name="Logic_KQB">= 1</string>
     <string name="LogicText">Bạn Toàn có 6 viên bi, thắng 2 viên bị. Hỏi bạn Toàn có mấy viên bi?</string>
+    <string name="About">Thông tin ứng dụng</string>
+    <string name="AboutUs">AboutUs</string>
+    <string name="QuayLai">Quay lại</string>
 </resources>

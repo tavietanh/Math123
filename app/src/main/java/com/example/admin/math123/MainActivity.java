@@ -1,11 +1,16 @@
 package com.example.admin.math123;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import static com.example.admin.math123.settingActivity.musicEffectChecked;
 import static com.example.admin.math123.settingActivity.musicfail;
@@ -50,6 +55,26 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,settingActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        Button btnAbout = (Button)findViewById(R.id.btnAbout);
+        btnAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast toast = new Toast(getApplicationContext());
+                toast.setGravity(Gravity.CENTER_HORIZONTAL,0,0);
+
+                TextView tv = new TextView(MainActivity.this);
+                tv.setTextSize(20);
+                tv.setBackgroundColor(Color.WHITE);
+
+                Typeface t = Typeface.create("serif", Typeface.BOLD_ITALIC);
+                tv.setTypeface(t);
+                tv.setPadding(5,5,5,5);
+                tv.setText("Thành viên nhóm: \nTạ Thành Việt Anh \nLê Nhật Khánh");
+                toast.setView(tv);
+                toast.show();
             }
         });
 
