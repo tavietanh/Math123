@@ -142,12 +142,12 @@ public class toando {
             switch (MauCau) {
                 case 0:
                     if (x == 0)
-                        return "Bạn Toàn có " + String.valueOf(numbera) + " viên bi và" + "bạn Toàn thắng " + String.valueOf(numberb) + " viên bi."
-                                + "Vì bạn Toàn 'Thắng' nên đây là bài toán tổng 2 số với kết quả là \n"
+                        return "Bạn Toàn có " + String.valueOf(numbera) + " viên bi và bạn Toàn thắng " + String.valueOf(numberb) + " viên bi."
+                                + "\nVì bạn Toàn 'Thắng' nên đây là bài toán tổng 2 số với kết quả là \n"
                                 + String.valueOf(numberc) + " = " + String.valueOf(numbera) + " + " + String.valueOf(numberb);
                     else
-                        return "Bạn Toàn có " + String.valueOf(numbera) + " viên bi và" + "bạn Toàn thua " + String.valueOf(numberb) + " viên bi."
-                                + "Vì bạn Toàn 'Thua' nên đây là bài toán hiệu 2 số với số trừ là " + String.valueOf(numbera) + ", số bị trừ là " + String.valueOf(numberb)
+                        return "Bạn Toàn có " + String.valueOf(numbera) + " viên bi và bạn Toàn thua " + String.valueOf(numberb) + " viên bi."
+                                + "\nVì bạn Toàn 'Thua' nên đây là bài toán hiệu 2 số với số trừ là " + String.valueOf(numbera) + ", số bị trừ là " + String.valueOf(numberb)
                                 + "\nKết quả là \n"
                                 + String.valueOf(numberc) + " = " + String.valueOf(numbera) + " - " + String.valueOf(numberb);
                 case 1:

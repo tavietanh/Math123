@@ -1,5 +1,6 @@
 package com.example.admin.math123;
 
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +8,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.content.Intent;
+
+import java.util.Locale;
 import java.util.Random;
 
 import com.example.admin.math123.core.toando;
@@ -15,6 +18,7 @@ import com.example.admin.math123.core.CustomDialogResult;
 import org.w3c.dom.Text;
 
 import static com.example.admin.math123.settingActivity.musicEffectChecked;
+import static com.example.admin.math123.settingActivity.musicSpeechChecked;
 import static com.example.admin.math123.settingActivity.musicfail;
 import static com.example.admin.math123.settingActivity.musicsuccess;
 
@@ -46,6 +50,7 @@ public class ToandoActivity extends AppCompatActivity {
     ImageView imgViewButtonLeft;
     ImageView imgViewButtonRight;
     ImageView imgViewKQ;
+    TextToSpeech toSpeech;
 
     Random rd=new Random();
     int type = 2;
@@ -79,6 +84,40 @@ public class ToandoActivity extends AppCompatActivity {
         imgViewButtonRight = (ImageView)findViewById(R.id.imageLogicButtonRight);
         imgViewKQ = (ImageView)findViewById(R.id.imageKetQua);
         randomType(type);
+        ContentText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(musicSpeechChecked)
+                {
+                    toSpeech = new TextToSpeech(ToandoActivity.this, new TextToSpeech.OnInitListener() {
+                        @Override
+                        public void onInit(int status) {
+                            if(status != TextToSpeech.ERROR){
+                                toSpeech.setLanguage(new Locale("vi","VN"));
+                                toSpeech.speak(ContentText.getText().toString(),TextToSpeech.QUEUE_FLUSH,null);
+                            }
+                        }
+                    });
+                }
+            }
+        });
+        CachGiai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(musicSpeechChecked)
+                {
+                    toSpeech = new TextToSpeech(ToandoActivity.this, new TextToSpeech.OnInitListener() {
+                        @Override
+                        public void onInit(int status) {
+                            if(status != TextToSpeech.ERROR){
+                                toSpeech.setLanguage(new Locale("vi","VN"));
+                                toSpeech.speak(CachGiai.getText().toString(),TextToSpeech.QUEUE_FLUSH,null);
+                            }
+                        }
+                    });
+                }
+            }
+        });
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -182,8 +221,10 @@ public class ToandoActivity extends AppCompatActivity {
         btnDapAnC.setVisibility(enable);
         btnDapAnD.setVisibility(enable);
         btnnext.setVisibility(visible);
-        if(HinhAnh != 1)
+        if(HinhAnh != 1) {
             CachGiai.setVisibility(visible);
+            ContentText.setVisibility(pointView.INVISIBLE);
+        }
 
     }
 

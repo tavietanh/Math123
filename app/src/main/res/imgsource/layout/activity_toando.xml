@@ -16,7 +16,7 @@
         android:background="@drawable/backgroundbaitaplogic"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
-        android:paddingTop="270dp"
+        android:paddingTop="285dp"
         android:text="@string/LogicHoiKQ"
         android:textSize="20sp"
         android:textStyle="bold"
