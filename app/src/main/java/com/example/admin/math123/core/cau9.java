@@ -15,15 +15,23 @@ public class cau9 {
     String Answer;
     public void setQuestion() {
         Random mRand = new Random();
-        int x = mRand.nextInt(2);
+        int x = mRand.nextInt(4);
         switch (x) {
             case 0:
                 question = "Hà nghĩ ra một số, lấy số đó trừ " + String.valueOf(numberb) + " cộng " + String.valueOf(numberc) + " bằng " + String.valueOf(numberd) + " . Hỏi số Hà nghĩ là bao nhiêu?";
                 Answer = "Số dó là: \n\t" + String.valueOf(numberd)+" - " + String.valueOf(numberc)+" + "+String.valueOf(numberb) +" = "+String.valueOf(numbera);
                 break;
             case 1:
-                question = "Tuấn lấy " + String.valueOf(numberb) + "viên bi trong hộp, sau đó bỏ thêm " + String.valueOf(numberc) + " viên bi thì số bi trong hộp là " + String.valueOf(numberd) + " . Hỏi trong hộp ban đầu trong hộp có mấy viên bi?";
+                question = "Tuấn lấy " + String.valueOf(numberb) + " viên bi trong hộp, sau đó bỏ thêm " + String.valueOf(numberc) + " viên bi thì số bi trong hộp là " + String.valueOf(numberd) + " . Hỏi trong hộp ban đầu trong hộp có mấy viên bi?";
                 Answer = "Số bi trong hộp là: \n\t" + String.valueOf(numberd)+" - " + String.valueOf(numberc)+" + "+String.valueOf(numberb) +" = "+String.valueOf(numbera);
+                break;
+            case 2:
+                question = "Bắt " + String.valueOf(numberb) + " con gà trong chuồng, trứng nở thêm " + String.valueOf(numberc) + " con gà thì số gà là " + String.valueOf(numberd) + " . Hỏi trong chuồng ban đầu có bao nhiêu con gà?";
+                Answer = "Số gà trong chuồng là: \n\t" + String.valueOf(numberd)+" - " + String.valueOf(numberc)+" + "+String.valueOf(numberb) +" = "+String.valueOf(numbera);
+                break;
+            case 3:
+                question = "Mẹ Dung bỏ " + String.valueOf(numberb) + " quả táo hư, sau đó mua thêm " + String.valueOf(numberc) + " quả táo thì số quả táo trong giỏ là " + String.valueOf(numberd) + " . Mẹ dung ban đầu có bao nhiêu quả táo?";
+                Answer = "Số táo là: \n\t" + String.valueOf(numberd)+" - " + String.valueOf(numberc)+" + "+String.valueOf(numberb) +" = "+String.valueOf(numbera);
                 break;
         }
     }

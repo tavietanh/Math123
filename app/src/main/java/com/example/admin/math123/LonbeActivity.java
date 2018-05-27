@@ -12,6 +12,10 @@ import android.widget.TextView;
 import com.example.admin.math123.core.lonbe;
 import com.example.admin.math123.core.CustomDialogResult;
 
+import static com.example.admin.math123.settingActivity.musicEffectChecked;
+import static com.example.admin.math123.settingActivity.musicfail;
+import static com.example.admin.math123.settingActivity.musicsuccess;
+
 public class LonbeActivity extends AppCompatActivity {
     lonbe Lonbe = new lonbe();
     int result = 3;
@@ -121,6 +125,10 @@ public class LonbeActivity extends AppCompatActivity {
         if(result==0) signview.setText(">");
         if(result==1) signview.setText("=");
         if(result==2) signview.setText("<");
+        if(musicEffectChecked)
+        {
+            musicfail.start();
+        }
         CustomDialogResult dialog = new CustomDialogResult(LonbeActivity.this,false);
         dialog.showdialog();
     }
@@ -128,6 +136,10 @@ public class LonbeActivity extends AppCompatActivity {
     {
         point +=10;
         pointView.setText(String.valueOf(point));
+        if(musicEffectChecked)
+        {
+            musicsuccess.start();
+        }
         CustomDialogResult dialog = new CustomDialogResult(LonbeActivity.this,true);
         dialog.showdialog();
     }

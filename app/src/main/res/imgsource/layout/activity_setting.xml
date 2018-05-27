@@ -4,6 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".settingActivity">
+    tools:context=".settingActivity"
+    android:background="@drawable/background_setting">
 
+    <CheckBox
+        android:id="@+id/CBSpeech"
+        android:layout_width="183dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="217dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="20dp"
+        android:checked="true"
+        android:text="Tự động nói"
+        android:textColor="@color/colorWhite"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CBEffect" />
+
+    <CheckBox
+        android:id="@+id/CBEffect"
+        android:layout_width="183dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="19dp"
+        android:checked="true"
+        android:text="Hiệu ứng"
+        android:textColor="@color/colorRedDark"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/CBSpeech"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CBMusic" />
+
+    <CheckBox
+        android:id="@+id/CBMusic"
+        android:layout_width="183dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="23dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="200dp"
+        android:checked="true"
+        android:text="Nhạc nền"
+        android:textColor="@color/colorBlackGreen"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/CBEffect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

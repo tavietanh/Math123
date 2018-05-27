@@ -1,6 +1,7 @@
 package com.example.admin.math123;
 
 import android.content.Intent;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,13 @@ import android.widget.TextView;
 
 import com.example.admin.math123.core.toanhinh;
 import com.example.admin.math123.core.CustomDialogResult;
+
+import java.util.Locale;
+
+import static com.example.admin.math123.settingActivity.musicEffectChecked;
+import static com.example.admin.math123.settingActivity.musicSpeechChecked;
+import static com.example.admin.math123.settingActivity.musicfail;
+import static com.example.admin.math123.settingActivity.musicsuccess;
 
 
 public class ToanhinhActivity extends AppCompatActivity {
@@ -27,7 +35,7 @@ public class ToanhinhActivity extends AppCompatActivity {
     Button btnNext;
     TextView pointView;
     TextView countView;
-
+    TextToSpeech toSpeech;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +57,23 @@ public class ToanhinhActivity extends AppCompatActivity {
         pointView.setText(String.valueOf(point));
         toanhinh.setBitmap(this.getApplicationContext());
         toanhinh.addItemToActivity(question,imageToanHinh,btnA,btnB,btnC,btnD,count);
+        question.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(musicSpeechChecked)
+                {
+                    toSpeech = new TextToSpeech(ToanhinhActivity.this, new TextToSpeech.OnInitListener() {
+                        @Override
+                        public void onInit(int status) {
+                            if(status != TextToSpeech.ERROR){
+                                toSpeech.setLanguage(new Locale("vi","VN"));
+                                toSpeech.speak(question.getText().toString(),TextToSpeech.QUEUE_FLUSH,null);
+                            }
+                        }
+                    });
+                }
+            }
+        });
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,11 +142,19 @@ public class ToanhinhActivity extends AppCompatActivity {
     {
         point +=10;
         pointView.setText(String.valueOf(point));
+        if(musicEffectChecked)
+        {
+            musicsuccess.start();
+        }
         CustomDialogResult dialog = new CustomDialogResult(ToanhinhActivity.this,true);
         dialog.showdialog();
     }
     public void setResultWhenFalse()
     {
+        if(musicEffectChecked)
+        {
+            musicfail.start();
+        }
         CustomDialogResult dialog = new CustomDialogResult(ToanhinhActivity.this,false);
         dialog.showdialog();
     }

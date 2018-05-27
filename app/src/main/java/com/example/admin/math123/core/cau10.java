@@ -1,7 +1,12 @@
 package com.example.admin.math123.core;
 
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.admin.math123.R;
+
+import java.util.Random;
 
 public class cau10 {
     int numbera=6;
@@ -54,9 +59,26 @@ public class cau10 {
                 break;
         }
     }
-    public void setItemToActivity(TextView Question, Button A, Button B, Button C)
+    public void setQuestion(TextView Question, ImageView imgview)
     {
-        Question.setText("Có bao nhiêu hình vuông?");
+        Random mRand = new Random();
+        int x = mRand.nextInt(4);
+        switch (x) {
+            case 0:
+                Question.setText("Có bao nhiêu hình vuông?");
+                this.numbera=6;
+                imgview.setImageResource(R.drawable.cau10_1);
+                break;
+            case 1:
+                Question.setText("Có bao nhiêu hình tam giác?");
+                this.numbera=6;
+                imgview.setImageResource(R.drawable.cau10_2);
+                break;
+        }
+    }
+    public void setItemToActivity(TextView Question, ImageView imgview, Button A, Button B, Button C)
+    {
+        setQuestion(Question,imgview);
         setResultToButton(A,B,C);
     }
 }

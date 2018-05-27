@@ -2,6 +2,7 @@ package com.example.admin.math123;
 
 import android.content.Intent;
 import android.os.CountDownTimer;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,13 @@ import com.example.admin.math123.core.cau10;
 import com.example.admin.math123.core.CustomDialogResult;
 
 import org.w3c.dom.Text;
+
+import java.util.Locale;
+
+import static com.example.admin.math123.settingActivity.musicEffectChecked;
+import static com.example.admin.math123.settingActivity.musicSpeechChecked;
+import static com.example.admin.math123.settingActivity.musicfail;
+import static com.example.admin.math123.settingActivity.musicsuccess;
 
 public class testActivity extends AppCompatActivity {
     boolean istest = true;
@@ -31,6 +39,7 @@ public class testActivity extends AppCompatActivity {
     TextView countview;
     ImageView imgView;
     TextView pointView;
+    TextToSpeech toSpeech;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +55,43 @@ public class testActivity extends AppCompatActivity {
         TextQuestion = (TextView)findViewById(R.id.textViewTest);
         imgQuestion = (TextView)findViewById(R.id.questionTest);
         imgView=(ImageView)findViewById(R.id.imgTest);
-        countview = (TextView)findViewById(R.id.pointTest);
+        countview = (TextView)findViewById(R.id.countTest);
         pointView= (TextView)findViewById(R.id.pointTest);
+        countview.setText(String.valueOf("Câu " + count));
+        TextQuestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(musicSpeechChecked)
+                {
+                    toSpeech = new TextToSpeech(testActivity.this, new TextToSpeech.OnInitListener() {
+                        @Override
+                        public void onInit(int status) {
+                            if(status != TextToSpeech.ERROR){
+                                toSpeech.setLanguage(new Locale("vi","VN"));
+                                toSpeech.speak(TextQuestion.getText().toString(),TextToSpeech.QUEUE_FLUSH,null);
+                            }
+                        }
+                    });
+                }
+            }
+        });
+        imgQuestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(musicSpeechChecked)
+                {
+                    toSpeech = new TextToSpeech(testActivity.this, new TextToSpeech.OnInitListener() {
+                        @Override
+                        public void onInit(int status) {
+                            if(status != TextToSpeech.ERROR){
+                                toSpeech.setLanguage(new Locale("vi","VN"));
+                                toSpeech.speak(TextQuestion.getText().toString(),TextToSpeech.QUEUE_FLUSH,null);
+                            }
+                        }
+                    });
+                }
+            }
+        });
         cau9.setResult(result);
         if(count<9) {
             istest = true;
@@ -59,6 +103,7 @@ public class testActivity extends AppCompatActivity {
             imgQuestion.setVisibility(View.INVISIBLE);
             imgView.setVisibility(View.INVISIBLE);
             cau9.setItemToActivity(TextQuestion,btnA,btnB,btnC);
+            countview.setText(String.valueOf("Câu " + count));
             btnNext.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -74,7 +119,7 @@ public class testActivity extends AppCompatActivity {
                         imgView.setVisibility(View.VISIBLE);
                         result = (int) (3*Math.random());
                         cau10.setResult(result);
-                        cau10.setItemToActivity(TextQuestion,btnA,btnB,btnC);
+                        cau10.setItemToActivity(TextQuestion,imgView,btnA,btnB,btnC);
                         count = count + 1;
                         countview.setText(String.valueOf("Câu " + count));
                         activeButton(View.VISIBLE, View.INVISIBLE);
@@ -115,6 +160,10 @@ public class testActivity extends AppCompatActivity {
     }
     public void setResultWhenFalse()
     {
+        if(musicEffectChecked)
+        {
+            musicfail.start();
+        }
         if(count ==9) TextQuestion.setText(cau9.getAnswer());
         CustomDialogResult dialog = new CustomDialogResult(testActivity.this,false);
         dialog.showdialog();
@@ -123,6 +172,10 @@ public class testActivity extends AppCompatActivity {
     {
         point +=10;
         pointView.setText(String.valueOf(point));
+        if(musicEffectChecked)
+        {
+            musicsuccess.start();
+        }
         if(count ==9) TextQuestion.setText(cau9.getAnswer());
         CustomDialogResult dialog = new CustomDialogResult(testActivity.this,true);
         dialog.showdialog();

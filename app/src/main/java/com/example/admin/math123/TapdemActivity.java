@@ -11,6 +11,10 @@ import android.widget.TextView;
 import com.example.admin.math123.core.tapdem;
 import com.example.admin.math123.core.CustomDialogResult;
 
+import static com.example.admin.math123.settingActivity.musicEffectChecked;
+import static com.example.admin.math123.settingActivity.musicfail;
+import static com.example.admin.math123.settingActivity.musicsuccess;
+
 public class TapdemActivity extends AppCompatActivity {
     tapdem Tapdem;
     int result = -1;
@@ -113,11 +117,19 @@ public class TapdemActivity extends AppCompatActivity {
     {
         point +=10;
         pointView.setText(String.valueOf(point));
+        if(musicEffectChecked)
+        {
+            musicsuccess.start();
+        }
         CustomDialogResult dialog = new CustomDialogResult(TapdemActivity.this,true);
         dialog.showdialog();
     }
     public void setResultWhenFalse()
     {
+        if(musicEffectChecked)
+        {
+            musicfail.start();
+        }
         CustomDialogResult dialog = new CustomDialogResult(TapdemActivity.this,false);
         dialog.showdialog();
     }
