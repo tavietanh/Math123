@@ -12,6 +12,10 @@ import android.content.Intent;
 import com.example.admin.math123.core.tinhnham;
 import com.example.admin.math123.core.CustomDialogResult;
 
+import static com.example.admin.math123.settingActivity.musicEffectChecked;
+import static com.example.admin.math123.settingActivity.musicfail;
+import static com.example.admin.math123.settingActivity.musicsuccess;
+
 public class TinhnhamActivity extends AppCompatActivity {
 
     tinhnham TinhNham = new tinhnham();
@@ -161,12 +165,20 @@ public class TinhnhamActivity extends AppCompatActivity {
     {
         point +=10;
         pointView.setText(String.valueOf(point));
+        if(musicEffectChecked)
+        {
+            musicsuccess.start();
+        }
         CustomDialogResult dialog = new CustomDialogResult(TinhnhamActivity.this,true);
         dialog.showdialog();
     }
 
     public void setResultWhenFalse()
     {
+        if(musicEffectChecked)
+        {
+            musicfail.start();
+        }
         CustomDialogResult dialog = new CustomDialogResult(TinhnhamActivity.this,false);
         dialog.showdialog();
     }

@@ -14,6 +14,10 @@ import com.example.admin.math123.core.CustomDialogResult;
 
 import org.w3c.dom.Text;
 
+import static com.example.admin.math123.settingActivity.musicEffectChecked;
+import static com.example.admin.math123.settingActivity.musicfail;
+import static com.example.admin.math123.settingActivity.musicsuccess;
+
 public class ToandoActivity extends AppCompatActivity {
 
     toando ToanDo = new toando();
@@ -153,12 +157,20 @@ public class ToandoActivity extends AppCompatActivity {
     {
         point +=10;
         pointView.setText(String.valueOf(point));
+        if(musicEffectChecked)
+        {
+            musicsuccess.start();
+        }
         CustomDialogResult dialog = new CustomDialogResult(ToandoActivity.this,true);
         dialog.showdialog();
     }
 
     public void setResultWhenFalse()
     {
+        if(musicEffectChecked)
+        {
+            musicfail.start();
+        }
         CustomDialogResult dialog = new CustomDialogResult(ToandoActivity.this,false);
         dialog.showdialog();
     }
