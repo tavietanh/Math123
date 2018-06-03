@@ -83,6 +83,7 @@ public class ToandoActivity extends AppCompatActivity {
         imgViewButtonLeft = (ImageView)findViewById(R.id.imageLogicButtonLeft);
         imgViewButtonRight = (ImageView)findViewById(R.id.imageLogicButtonRight);
         imgViewKQ = (ImageView)findViewById(R.id.imageKetQua);
+        pointView.setText(String.valueOf(point));
         randomType(type);
         ContentText.setOnClickListener(new View.OnClickListener() {
             @Override

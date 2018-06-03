@@ -120,11 +120,11 @@ public class toando {
                                 + String.valueOf(numberb) + " que tính. Hỏi người anh có bao nhiêu que tính?";
                 case 1:
                     if (x == 0)
-                        return "Lan và Hồng có " + String.valueOf(numberc) + " quyễn vở. Hồng có "
-                                +String.valueOf(numberb) + " quyễn vở. Hỏi Lan có bao nhiêu quyễn vở?";
+                        return "Lan và Hồng có " + String.valueOf(numberc) + " quyển vở. Hồng có "
+                                +String.valueOf(numberb) + " quyển vở. Hỏi Lan có bao nhiêu quyển vở?";
                     else
-                        return "Lan cho Hồng " + String.valueOf(numberb) + " quyễn vở. Lan còn lại "
-                                +String.valueOf(numberc) + " quyễn vở. Hỏi Lan có bao nhiêu quyễn vở?";
+                        return "Lan cho Hồng " + String.valueOf(numberb) + " quyển vở. Lan còn lại "
+                                +String.valueOf(numberc) + " quyển vở. Hỏi Lan có bao nhiêu quyển vở?";
                 case 2:
                     if (x == 0)
                         return "Lớp 1A và lớp 1B có " + String.valueOf(numberc) + " bạn, biết lớp 1B có" + String.valueOf(numberb)
@@ -224,13 +224,13 @@ public class toando {
                                 + String.valueOf(numbera) + " = " + String.valueOf(numberc) + " + " + String.valueOf(numberb);
                 case 1:
                     if (x == 0)
-                        return "Lan và Hồng có " + String.valueOf(numberc) + " quyễn vở và Hồng có " +String.valueOf(numberb) + " quyễn vở"
-                                + "\nHỏi Lan có bao nhiêu quyễn vở? Đây là bài toán tổng 2 số nên ta tìm theo cách sau:\n"
+                        return "Lan và Hồng có " + String.valueOf(numberc) + " quyển vở và Hồng có " +String.valueOf(numberb) + " quyển vở"
+                                + "\nHỏi Lan có bao nhiêu quyển vở? Đây là bài toán tổng 2 số nên ta tìm theo cách sau:\n"
                                 + String.valueOf(numberc) + " = " + "? + " + String.valueOf(numberb) + "\n"
                                 + String.valueOf(numbera) + " = " + String.valueOf(numberc) + " - " + String.valueOf(numberb);
                     else
-                        return "Lan cho Hồng " + String.valueOf(numberb) + " quyễn vở và Lan còn lại " +String.valueOf(numberc) + " quyễn vở"
-                                + "\nHỏi Lan có bao nhiêu quyễn vở? Đây là bài toán hiệu 2 số nên ta tìm theo cách sau:\n"
+                        return "Lan cho Hồng " + String.valueOf(numberb) + " quyển vở và Lan còn lại " +String.valueOf(numberc) + " quyển vở"
+                                + "\nHỏi Lan có bao nhiêu quyển vở? Đây là bài toán hiệu 2 số nên ta tìm theo cách sau:\n"
                                 + String.valueOf(numberc) + " = " + "? - " + String.valueOf(numberb) + "\n"
                                 + String.valueOf(numbera) + " = " + String.valueOf(numberc) + " + " + String.valueOf(numberb);
                 case 2:

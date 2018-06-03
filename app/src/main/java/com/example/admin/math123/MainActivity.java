@@ -72,11 +72,19 @@ public class MainActivity extends AppCompatActivity {
                 Typeface t = Typeface.create("serif", Typeface.BOLD_ITALIC);
                 tv.setTypeface(t);
                 tv.setPadding(5,5,5,5);
-                tv.setText("Thành viên nhóm: \nTạ Thành Việt Anh \nLê Nhật Khánh");
+                tv.setText("Thành viên nhóm:\n \nTạ Thành Việt Anh \nLê Nhật Khánh");
                 toast.setView(tv);
                 toast.show();
             }
         });
 
+        Button btnXephang = (Button)findViewById(R.id.btnXepHang);
+        btnXephang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,XephangActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

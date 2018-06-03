@@ -66,6 +66,7 @@ public class TinhnhamActivity extends AppCompatActivity {
         pointView = (TextView)findViewById(R.id.pointTinhNham);
         countview = (TextView)findViewById(R.id.countTinhnham);
         countview.setText(String.valueOf("Câu " + count));
+        pointView.setText(String.valueOf(point));
         randomType(type);
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override

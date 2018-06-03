@@ -30,4 +30,6 @@
     <string name="About">Thông tin ứng dụng</string>
     <string name="AboutUs">AboutUs</string>
     <string name="QuayLai">Quay lại</string>
+    <string name="XepHang">Xếp Hạng</string>
+    <string name="btn_Xephang" >Xếp Hạng</string>
 </resources>
