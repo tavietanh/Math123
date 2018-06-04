@@ -1,7 +1,6 @@
 package com.example.admin.math123;
 
 import android.content.Intent;
-import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,16 +9,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStreamReader;
-
 import com.example.admin.math123.core.cau9;
 import com.example.admin.math123.core.cau10;
 import com.example.admin.math123.core.CustomDialogResult;
-
-import org.w3c.dom.Text;
 
 import java.util.Locale;
 
@@ -33,6 +25,7 @@ public class testActivity extends AppCompatActivity {
     int count = 0;
     int point = 0;
     int result = (int) (3*Math.random());
+    int Layout = 1;
     TextView TextQuestion;
     Button btnA;
     Button btnB;
@@ -119,7 +112,7 @@ public class testActivity extends AppCompatActivity {
                     {
                         Intent intent = new Intent(testActivity.this,ResultActivity.class);
                         intent.putExtra("point",String.valueOf(point));
-                        saveData();
+                        //saveData();
                         startActivity(intent);
                     }
                     else {
@@ -197,34 +190,22 @@ public class testActivity extends AppCompatActivity {
         btnNext.setVisibility(visible);
     }
 
-    private void saveData() {
-        String data = this.pointView.getText().toString();
+    /*private void saveData() {
         try {
-
-            // Mở một luồng ghi file.
-            FileOutputStream out = this.openFileOutput(simpleFileName, MODE_PRIVATE);
-            // Ghi dữ liệu.
-            out.write(data.getBytes());
-            out.close();
-        } catch (Exception e) {
+            FileOutputStream fileOutputStream = openFileOutput("xephang.txt",MODE_PRIVATE);
+            String s = "Hạng 1: " + count;
+            byte[] buffer = s.getBytes();
+            fileOutputStream.write(buffer);
+            fileOutputStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-    }
+    }*/
 
     private void readData() {
-        try {
 
-            // Mở một luồng đọc file.
-            FileInputStream in = this.openFileInput(simpleFileName);
-
-            BufferedReader br= new BufferedReader(new InputStreamReader(in));
-
-            StringBuilder sb= new StringBuilder();
-            String s= null;
-            while((s= br.readLine())!= null)  {
-                sb.append(s).append("\n");
-            }
-        } catch (Exception e) {
-        }
     }
 }
 

@@ -22,6 +22,7 @@ public class TinhnhamActivity extends AppCompatActivity {
     int result = 1;
     int count = 1;
     int point = 0;
+    int Layout = 5;
     boolean istest = false;
     TextView sign;
     TextView sign2;

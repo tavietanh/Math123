@@ -9,9 +9,16 @@ import android.widget.ListView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.admin.math123.core.Xephang;
+
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
+import java.lang.*;
 
 public class XephangActivity extends AppCompatActivity{
     int point;
@@ -20,57 +27,119 @@ public class XephangActivity extends AppCompatActivity{
     private String[] listData;
     private ArrayAdapter adapter;
     String simpleFileName = "Xephang.txt";
-    TextView ReadFile;
+    TextView XepHangText;
+    int Layout;
+    String[] temp = new String[10];
+    Xephang XepHang = new Xephang();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_xephang);
-//        Intent intent = this.getIntent();
-//        point = Integer.parseInt(intent.getStringExtra("point"));
+        /*temp[0] = "";
+        temp[1] = "";
+        temp[2] = "";
+        temp[3] = "";
+        temp[4] = "";
+        temp[5] = "";
+        temp[6] = "";
+        temp[7] = "";
+        temp[8] = "";
+        temp[9] = "";*/
+        Intent intent = this.getIntent();
         btnNext = (Button)findViewById(R.id.btnNextResult);
         Listview = (ListView)findViewById(R.id.listxephang);
-        ReadFile = (TextView)findViewById(R.id.ReadFile);
+        Layout = Integer.parseInt(intent.getStringExtra("Layout"));
+        XepHangText = (TextView)findViewById(R.id.XepHang);
+        switch (Layout){
+            case 1:
+                XepHangText.setText("Xếp hạng Kiểm tra");
+                break;
+            case 2:
+                XepHangText.setText("Xếp hạng Tập đếm");
+                break;
+            case 3:
+                XepHangText.setText("Xếp hạng Lớn bé");
+                break;
+            case 4:
+                XepHangText.setText("Xếp hạng Toán hình");
+                break;
+            case 5:
+                XepHangText.setText("Xếp hạng Tính nhẩm");
+                break;
+            case 6:
+                XepHangText.setText("Xếp hạng Toán đố");
+                break;
+        }
         readData();
-/*        btnNext.setOnClickListener(new View.OnClickListener() {
+        listData = new String[]{
+                "Hạng 1: " + XepHang.get1() + " điểm",
+                "Hạng 2: " + XepHang.get2() + " điểm",
+                "Hạng 3: " + XepHang.get3() + " điểm",
+                "Hạng 4: " + XepHang.get4() + " điểm",
+                "Hạng 5: " + XepHang.get5() + " điểm",
+                "Hạng 6: " + XepHang.get6() + " điểm",
+                "Hạng 7: " + XepHang.get7() + " điểm",
+                "Hạng 8: " + XepHang.get8() + " điểm",
+                "Hạng 9: " + XepHang.get9() + " điểm",
+                "Hạng 10: " + XepHang.get10() + " điểm"
+        };
+
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1 , listData);
+        Listview.setAdapter(adapter);
+        btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent NextIntent = new Intent(XephangActivity.this,MainActivity.class);
                 startActivity(NextIntent);
             }
-        });*/
-        listData = new String[]{
-                "Hạng 1: 100 điểm",
-                "Hạng 2: 80 điểm",
-                "Hạng 3: 70 điểm",
-                "Hạng 4: 60 điểm",
-                "Hạng 5: 50 điểm",
-                "Hạng 6: 40 điểm",
-                "Hạng 7: 30 điểm",
-                "Hạng 8: 20 điểm",
-                "Hạng 9: 10 điểm",
-                "Hạng 10: 0 điểm"
-        };
-
-
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1 , listData);
-        Listview.setAdapter(adapter);
+        });
     }
 
     private void readData() {
-        try {
+        /*try {
+            FileInputStream fin = openFileInput("XepHangLonBe.txt");
 
-            // Mở một luồng đọc file.
-            FileInputStream in = this.openFileInput(simpleFileName);
-
-            BufferedReader br= new BufferedReader(new InputStreamReader(in));
-
-            StringBuilder sb= new StringBuilder();
-            String s= null;
-            while((s= br.readLine())!= null)  {
-                sb.append(s).append("");
+            int c;
+            int i = 0;
+            String a = " ";
+            while( (c = fin.read()) != -1){
+                if(Character.toString((char)c).equals(a))
+                    i++;
+                else {
+                    temp[i] = temp[i] + Character.toString((char) c);
+                }
             }
-            this.ReadFile.setText(sb.toString() + " điểm");
+            fin.close();
         } catch (Exception e) {
+        }*/
+        try {
+            FileInputStream f = new FileInputStream("");
+            switch (Layout){
+                case 1:
+                    f = new FileInputStream("XepHangTest.txt");
+                    break;
+                case 2:
+                    f = new FileInputStream("XepHangTapDem.txt");
+                    break;
+                case 3:
+                    f = new FileInputStream("XepHangLonBe.txt");
+                    break;
+                case 4:
+                    f = new FileInputStream("XepHangToanHinh.txt");
+                    break;
+                case 5:
+                    f = new FileInputStream("XepHangTinhNham.txt");
+                    break;
+                case 6:
+                    f = new FileInputStream("XepHangToanDo.txt");
+                    break;
+            }
+            ObjectInputStream oIT = new ObjectInputStream(f); // Sử dụng để đọc file theo từng Object
+            XepHang = (Xephang) oIT.readObject();
+            oIT.close();
+            f.close();
+        } catch (IOException io) {
+        } catch (ClassNotFoundException ex) {
         }
     }
 }

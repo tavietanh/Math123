@@ -28,6 +28,7 @@ public class ToandoActivity extends AppCompatActivity {
     int result = 1;
     int count = 1;
     int point = 0;
+    int Layout = 6;
     boolean istest = false;
     int signb = 0;
     int SoA,SoB;

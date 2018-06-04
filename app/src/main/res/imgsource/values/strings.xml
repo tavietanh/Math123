@@ -32,4 +32,9 @@
     <string name="QuayLai">Quay lại</string>
     <string name="XepHang">Xếp Hạng</string>
     <string name="btn_Xephang" >Xếp Hạng</string>
+    <string name="btnLonBe">Lớn bé</string>
+    <string name="btnTapDem">Tập đếm</string>
+    <string name="btnToanHinh">Toán hình</string>
+    <string name="btnTinhNham">Tính nhẩm</string>
+    <string name="btnToanDo">Toán đố</string>
 </resources>

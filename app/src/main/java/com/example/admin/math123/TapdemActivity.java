@@ -20,6 +20,7 @@ public class TapdemActivity extends AppCompatActivity {
     int result = -1;
     int count = 1;
     int point = 0;
+    int Layout = 2;
     boolean istest = false;
     Button A;
     Button B;

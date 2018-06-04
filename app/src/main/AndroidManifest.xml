@@ -26,6 +26,7 @@
         <activity android:name=".TinhnhamActivity" />
         <activity android:name=".ResultActivity" />
         <activity android:name=".XephangActivity"/>
+        <activity android:name=".XephangMenuActivity"/>
     </application>
 
 </manifest>
