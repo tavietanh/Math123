@@ -66,6 +66,7 @@ public class LonbeActivity extends AppCompatActivity {
                 {
                     Intent intent = new Intent(LonbeActivity.this,ResultActivity.class);
                     intent.putExtra("point",String.valueOf(point));
+                    intent.putExtra("LayoutBaiTap",String.valueOf(Layout));
                     startActivity(intent);
                 }
                 else {

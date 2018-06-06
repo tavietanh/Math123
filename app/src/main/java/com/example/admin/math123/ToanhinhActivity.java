@@ -81,6 +81,7 @@ public class ToanhinhActivity extends AppCompatActivity {
                     if (count == 10) {
                         Intent intent = new Intent(ToanhinhActivity.this, ResultActivity.class);
                         intent.putExtra("point", String.valueOf(point));
+                        intent.putExtra("LayoutBaiTap",String.valueOf(Layout));
                         startActivity(intent);
                     } else {
                         if(count==2&&istest)

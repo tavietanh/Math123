@@ -11,13 +11,9 @@ import android.widget.TextView;
 
 import com.example.admin.math123.core.Xephang;
 
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
-import java.util.ArrayList;
 import java.lang.*;
 
 public class XephangActivity extends AppCompatActivity{
@@ -26,29 +22,18 @@ public class XephangActivity extends AppCompatActivity{
     ListView Listview;
     private String[] listData;
     private ArrayAdapter adapter;
-    String simpleFileName = "Xephang.txt";
     TextView XepHangText;
-    int Layout;
-    String[] temp = new String[10];
-    Xephang XepHang = new Xephang();
+    int Layout = 3;
+    Xephang XepHang = new Xephang(10,0,0,0,0,0,0,0,0,0);
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_xephang);
-        /*temp[0] = "";
-        temp[1] = "";
-        temp[2] = "";
-        temp[3] = "";
-        temp[4] = "";
-        temp[5] = "";
-        temp[6] = "";
-        temp[7] = "";
-        temp[8] = "";
-        temp[9] = "";*/
+
         Intent intent = this.getIntent();
+        Layout = Integer.parseInt(intent.getStringExtra("Layout"));
         btnNext = (Button)findViewById(R.id.btnNextResult);
         Listview = (ListView)findViewById(R.id.listxephang);
-        Layout = Integer.parseInt(intent.getStringExtra("Layout"));
         XepHangText = (TextView)findViewById(R.id.XepHang);
         switch (Layout){
             case 1:
@@ -96,22 +81,6 @@ public class XephangActivity extends AppCompatActivity{
     }
 
     private void readData() {
-        /*try {
-            FileInputStream fin = openFileInput("XepHangLonBe.txt");
-
-            int c;
-            int i = 0;
-            String a = " ";
-            while( (c = fin.read()) != -1){
-                if(Character.toString((char)c).equals(a))
-                    i++;
-                else {
-                    temp[i] = temp[i] + Character.toString((char) c);
-                }
-            }
-            fin.close();
-        } catch (Exception e) {
-        }*/
         try {
             FileInputStream f = new FileInputStream("");
             switch (Layout){

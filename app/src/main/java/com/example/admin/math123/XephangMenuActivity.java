@@ -24,7 +24,9 @@ public class XephangMenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_xephang_menu);
+
+        Intent intenttest = getIntent();
         if(musicEffectChecked)
         {
             musicsuccess = MediaPlayer.create(XephangMenuActivity.this,R.raw.music_success);
@@ -41,8 +43,9 @@ public class XephangMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(XephangMenuActivity.this, XephangActivity.class);
-                startActivity(intent);
                 Layout = 1;
+                intent.putExtra("Layout",String.valueOf(Layout));
+                startActivity(intent);
             }
         });
         Button btnTapDem = (Button)findViewById(R.id.btnTapDem);
@@ -50,8 +53,9 @@ public class XephangMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(XephangMenuActivity.this, XephangActivity.class);
-                startActivity(intent);
                 Layout = 2;
+                intent.putExtra("Layout",String.valueOf(Layout));
+                startActivity(intent);
             }
         });
         final Button btnLonBe = (Button)findViewById(R.id.btnLonBe);
@@ -59,8 +63,9 @@ public class XephangMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(XephangMenuActivity.this, XephangActivity.class);
-                startActivity(intent);
                 Layout = 3;
+                intent.putExtra("Layout",String.valueOf(Layout));
+                startActivity(intent);
             }
         });
 
@@ -69,8 +74,9 @@ public class XephangMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(XephangMenuActivity.this, XephangActivity.class);
-                startActivity(intent);
                 Layout = 4;
+                intent.putExtra("Layout",String.valueOf(Layout));
+                startActivity(intent);
             }
         });
 
@@ -79,8 +85,9 @@ public class XephangMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(XephangMenuActivity.this, XephangActivity.class);
-                startActivity(intent);
                 Layout = 5;
+                intent.putExtra("Layout",String.valueOf(Layout));
+                startActivity(intent);
             }
         });
 
@@ -89,8 +96,9 @@ public class XephangMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(XephangMenuActivity.this, XephangActivity.class);
-                startActivity(intent);
                 Layout = 6;
+                intent.putExtra("Layout",String.valueOf(Layout));
+                startActivity(intent);
             }
         });
     }

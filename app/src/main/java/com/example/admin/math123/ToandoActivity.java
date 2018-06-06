@@ -127,6 +127,7 @@ public class ToandoActivity extends AppCompatActivity {
                 {
                     Intent intent = new Intent(ToandoActivity.this,ResultActivity.class);
                     intent.putExtra("point",String.valueOf(point));
+                    intent.putExtra("LayoutBaiTap",String.valueOf(Layout));
                     startActivity(intent);
                 }
                 else {

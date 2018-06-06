@@ -112,7 +112,7 @@ public class testActivity extends AppCompatActivity {
                     {
                         Intent intent = new Intent(testActivity.this,ResultActivity.class);
                         intent.putExtra("point",String.valueOf(point));
-                        //saveData();
+                        intent.putExtra("LayoutBaiTap",String.valueOf(Layout));
                         startActivity(intent);
                     }
                     else {
@@ -188,24 +188,6 @@ public class testActivity extends AppCompatActivity {
         btnB.setVisibility(enable);
         btnC.setVisibility(enable);
         btnNext.setVisibility(visible);
-    }
-
-    /*private void saveData() {
-        try {
-            FileOutputStream fileOutputStream = openFileOutput("xephang.txt",MODE_PRIVATE);
-            String s = "Hạng 1: " + count;
-            byte[] buffer = s.getBytes();
-            fileOutputStream.write(buffer);
-            fileOutputStream.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
-
-    private void readData() {
-
     }
 }
 

@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         btnXephang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,XephangActivity.class);
+                Intent intent = new Intent(MainActivity.this,XephangMenuActivity.class);
                 startActivity(intent);
             }
         });

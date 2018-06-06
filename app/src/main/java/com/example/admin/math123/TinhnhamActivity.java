@@ -76,6 +76,7 @@ public class TinhnhamActivity extends AppCompatActivity {
                 {
                     Intent intent = new Intent(TinhnhamActivity.this,ResultActivity.class);
                     intent.putExtra("point",String.valueOf(point));
+                    intent.putExtra("LayoutBaiTap",String.valueOf(Layout));
                     startActivity(intent);
                 }
                 else {
