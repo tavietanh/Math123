@@ -7,28 +7,36 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.admin.math123.core.Xephang;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-
 
 public class ResultActivity extends AppCompatActivity {
     int point;
-    int Layout = 3;
+    int Layout;
     TextView textPoint;
     TextView textFalse;
     TextView textTrue;
     Button btnNext;
-    Xephang XepHang = new Xephang(10, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    String S = "0 0 0 0 0 0 0 0 0 0";
+    String[] temp = new String[10];
+    String Filename;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
+        temp[0] = "";
+        temp[1] = "";
+        temp[2] = "";
+        temp[3] = "";
+        temp[4] = "";
+        temp[5] = "";
+        temp[6] = "";
+        temp[7] = "";
+        temp[8] = "";
+        temp[9] = "";
 
         Intent intent = this.getIntent();
         point = Integer.parseInt(intent.getStringExtra("point"));
@@ -49,37 +57,30 @@ public class ResultActivity extends AppCompatActivity {
                 startActivity(NextIntent);
             }
         });
+        GetFileName();
         readData();
         KiemTraDiem();
         saveData();
+        temp[0] = "";
+        temp[1] = "";
+        temp[2] = "";
+        temp[3] = "";
+        temp[4] = "";
+        temp[5] = "";
+        temp[6] = "";
+        temp[7] = "";
+        temp[8] = "";
+        temp[9] = "";
+        readData();
+        String x = temp[0];
     }
 
-    public void saveData(){
+    public void saveData() {
         try {
-            FileOutputStream f = new FileOutputStream("");
-            switch (Layout) {
-                case 1:
-                    f = new FileOutputStream("XepHangTest.txt");
-                    break;
-                case 2:
-                    f = new FileOutputStream("XepHangTapDem.txt");
-                    break;
-                case 3:
-                    f = new FileOutputStream("XepHangLonBe.txt");
-                    break;
-                case 4:
-                    f = new FileOutputStream("XepHangToanHinh.txt");
-                    break;
-                case 5:
-                    f = new FileOutputStream("XepHangTinhNham.txt");
-                    break;
-                case 6:
-                    f = new FileOutputStream("XepHangToanDo.txt");
-                    break;
-            }
-            ObjectOutputStream oOT = new ObjectOutputStream(f); // Sử dụng để ghi file theo từng Object
-            oOT.writeObject(XepHang);
-            oOT.close();
+            FileOutputStream f = openFileOutput(Filename, MODE_PRIVATE);
+            S = temp[0] + " " + temp[1] + " " + temp[2] + " " + temp[3] + " " + temp[4] + " " + temp[5]
+                    + " " + temp[6] + " " + temp[7] + " " + temp[8] + " " + temp[9];
+            f.write(S.getBytes());
             f.close();
         } catch (IOException e) {
         }
@@ -87,102 +88,111 @@ public class ResultActivity extends AppCompatActivity {
 
     private void readData() {
         try {
-            FileInputStream f = new FileInputStream("");
-            switch (Layout) {
-                case 1:
-                    f = new FileInputStream("XepHangTest.txt");
-                    break;
-                case 2:
-                    f = new FileInputStream("XepHangTapDem.txt");
-                    break;
-                case 3:
-                    f = new FileInputStream("XepHangLonBe.txt");
-                    break;
-                case 4:
-                    f = new FileInputStream("XepHangToanHinh.txt");
-                    break;
-                case 5:
-                    f = new FileInputStream("XepHangTinhNham.txt");
-                    break;
-                case 6:
-                    f = new FileInputStream("XepHangToanDo.txt");
-                    break;
+            FileInputStream fin = openFileInput(Filename);
+            int c;
+            int i = 0;
+            String a = " ";
+            while ((c = fin.read()) != -1) {
+                if (Character.toString((char) c).equals(a))
+                    i++;
+                else
+                    temp[i] = temp[i] + Character.toString((char) c);
             }
-            ObjectInputStream oIT = new ObjectInputStream(f); // Sử dụng để đọc file theo từng Object
-            XepHang = (Xephang) oIT.readObject();
-            oIT.close();
-            f.close();
+
+            fin.close();
         } catch (IOException io) {
-        } catch (ClassNotFoundException ex) {
         }
     }
 
     public void KiemTraDiem() {
-        if (point > XepHang.get1()) {
-            XepHang.set10(XepHang.get9());
-            XepHang.set9(XepHang.get8());
-            XepHang.set8(XepHang.get7());
-            XepHang.set7(XepHang.get6());
-            XepHang.set6(XepHang.get5());
-            XepHang.set5(XepHang.get4());
-            XepHang.set4(XepHang.get3());
-            XepHang.set3(XepHang.get2());
-            XepHang.set2(XepHang.get1());
-            XepHang.set1(point);
-        } else if (point > XepHang.get2()) {
-            XepHang.set10(XepHang.get9());
-            XepHang.set9(XepHang.get8());
-            XepHang.set8(XepHang.get7());
-            XepHang.set7(XepHang.get6());
-            XepHang.set6(XepHang.get5());
-            XepHang.set5(XepHang.get4());
-            XepHang.set4(XepHang.get3());
-            XepHang.set3(XepHang.get2());
-            XepHang.set2(point);
-        } else if (point > XepHang.get3()) {
-            XepHang.set10(XepHang.get9());
-            XepHang.set9(XepHang.get8());
-            XepHang.set8(XepHang.get7());
-            XepHang.set7(XepHang.get6());
-            XepHang.set6(XepHang.get5());
-            XepHang.set5(XepHang.get4());
-            XepHang.set4(XepHang.get3());
-            XepHang.set3(point);
-        } else if (point > XepHang.get4()) {
-            XepHang.set10(XepHang.get9());
-            XepHang.set9(XepHang.get8());
-            XepHang.set8(XepHang.get7());
-            XepHang.set7(XepHang.get6());
-            XepHang.set6(XepHang.get5());
-            XepHang.set5(XepHang.get4());
-            XepHang.set4(point);
-        } else if (point > XepHang.get5()) {
-            XepHang.set10(XepHang.get9());
-            XepHang.set9(XepHang.get8());
-            XepHang.set8(XepHang.get7());
-            XepHang.set7(XepHang.get6());
-            XepHang.set6(XepHang.get5());
-            XepHang.set5(point);
-        } else if (point > XepHang.get6()) {
-            XepHang.set10(XepHang.get9());
-            XepHang.set9(XepHang.get8());
-            XepHang.set8(XepHang.get7());
-            XepHang.set7(XepHang.get6());
-            XepHang.set6(point);
-        } else if (point > XepHang.get7()) {
-            XepHang.set10(XepHang.get9());
-            XepHang.set9(XepHang.get8());
-            XepHang.set8(XepHang.get7());
-            XepHang.set7(point);
-        } else if (point > XepHang.get8()) {
-            XepHang.set10(XepHang.get9());
-            XepHang.set9(XepHang.get8());
-            XepHang.set8(point);
-        } else if (point > XepHang.get9()) {
-            XepHang.set10(XepHang.get9());
-            XepHang.set9(point);
-        } else if (point > XepHang.get10()) {
-            XepHang.set10(point);
+        if (point > Integer.parseInt(temp[0])) {
+            temp[9] = temp[8];
+            temp[8] = temp[7];
+            temp[7] = temp[6];
+            temp[6] = temp[5];
+            temp[5] = temp[4];
+            temp[4] = temp[3];
+            temp[3] = temp[2];
+            temp[2] = temp[1];
+            temp[1] = temp[0];
+            temp[0] = String.valueOf(point);
+        } else if (point > Integer.parseInt(temp[1])) {
+            temp[9] = temp[8];
+            temp[8] = temp[7];
+            temp[7] = temp[6];
+            temp[6] = temp[5];
+            temp[5] = temp[4];
+            temp[4] = temp[3];
+            temp[3] = temp[2];
+            temp[2] = temp[1];
+            temp[1] = String.valueOf(point);
+        } else if (point > Integer.parseInt(temp[2])) {
+            temp[9] = temp[8];
+            temp[8] = temp[7];
+            temp[7] = temp[6];
+            temp[6] = temp[5];
+            temp[5] = temp[4];
+            temp[4] = temp[3];
+            temp[3] = temp[2];
+            temp[2] = String.valueOf(point);
+        } else if (point > Integer.parseInt(temp[3])) {
+            temp[9] = temp[8];
+            temp[8] = temp[7];
+            temp[7] = temp[6];
+            temp[6] = temp[5];
+            temp[5] = temp[4];
+            temp[4] = temp[3];
+            temp[3] = String.valueOf(point);
+        } else if (point > Integer.parseInt(temp[4])) {
+            temp[9] = temp[8];
+            temp[8] = temp[7];
+            temp[7] = temp[6];
+            temp[6] = temp[5];
+            temp[5] = temp[4];
+            temp[4] = String.valueOf(point);
+        } else if (point > Integer.parseInt(temp[5])) {
+            temp[9] = temp[8];
+            temp[8] = temp[7];
+            temp[7] = temp[6];
+            temp[6] = temp[5];
+            temp[5] = String.valueOf(point);
+        } else if (point > Integer.parseInt(temp[6])) {
+            temp[9] = temp[8];
+            temp[8] = temp[7];
+            temp[7] = temp[6];
+            temp[6] = String.valueOf(point);
+        } else if (point > Integer.parseInt(temp[7])) {
+            temp[9] = temp[8];
+            temp[8] = temp[7];
+            temp[7] = String.valueOf(point);
+        } else if (point > Integer.parseInt(temp[8])) {
+            temp[9] = temp[8];
+            temp[8] = String.valueOf(point);
+        } else if (point > Integer.parseInt(temp[9])) {
+            temp[9] = String.valueOf(point);
+        }
+    }
+
+    public void GetFileName(){
+        switch (Layout){
+            case 1:
+                Filename = "XepHangTest.txt";
+                break;
+            case 2:
+                Filename = "XepHangTapDem.txt";
+                break;
+            case 3:
+                Filename = "XepHangLonBe.txt";
+                break;
+            case 4:
+                Filename = "XepHangToanHinh.txt";
+                break;
+            case 5:
+                Filename = "XepHangTinhNham.txt";
+                break;
+            case 6:
+                Filename = "XepHangToanDo.txt";
+                break;
         }
     }
 }
