@@ -15,8 +15,6 @@ import java.util.Random;
 import com.example.admin.math123.core.toando;
 import com.example.admin.math123.core.CustomDialogResult;
 
-import org.w3c.dom.Text;
-
 import static com.example.admin.math123.settingActivity.musicEffectChecked;
 import static com.example.admin.math123.settingActivity.musicSpeechChecked;
 import static com.example.admin.math123.settingActivity.musicfail;

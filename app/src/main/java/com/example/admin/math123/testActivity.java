@@ -39,8 +39,6 @@ public class testActivity extends AppCompatActivity {
     TextView pointView;
     TextToSpeech toSpeech;
 
-    private String simpleFileName = "Xephang.txt";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

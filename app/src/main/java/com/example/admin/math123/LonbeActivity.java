@@ -176,5 +176,4 @@ public class LonbeActivity extends AppCompatActivity {
         }
         type= (int) (2*Math.random());
     }
-
 }
