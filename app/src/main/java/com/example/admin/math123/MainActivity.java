@@ -93,10 +93,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        for(FileNameNumber = 1; FileNameNumber < 7; FileNameNumber++)
+        File path = this.getFilesDir();
+        for(FileNameNumber = 1; FileNameNumber < 6; FileNameNumber++)
         {
-            GetFileName();
-            CreateData();
+            FileName = GetFileName(FileNameNumber);
+            File file = new File(path, FileName);
+//            file = new File(FileName);
+            if(!file.exists()){
+                CreateData();
+            }
         }
     }
 
@@ -113,8 +118,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void GetFileName(){
-        switch (FileNameNumber){
+    public String GetFileName(int n){
+        switch (n){
             case 1:
                 FileName = "XepHangTest.txt";
                 break;
@@ -134,5 +139,6 @@ public class MainActivity extends AppCompatActivity {
                 FileName = "XepHangToanDo.txt";
                 break;
         }
+        return FileName;
     }
 }
